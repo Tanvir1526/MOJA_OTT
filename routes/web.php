@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AdminController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,4 +15,9 @@ use App\Http\Controllers\HomeController;
 |
 */
 
+//_____________Common routes_____________
 Route::get('/', [HomeController::class, 'login'])->name('login');
+Route::get('/Register', [HomeController::class, 'register'])->name('register');
+
+//_____________Admin routes_____________
+Route::get('/Admin', [HomeController::class, 'adminDashboard'])->name('admin.Dashboard');

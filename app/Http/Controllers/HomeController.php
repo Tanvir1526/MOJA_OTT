@@ -10,4 +10,8 @@ class HomeController extends Controller
     {
         return view('common.login');
     }
+    function register()
+    {
+        return view('common.register');
+    }
 }

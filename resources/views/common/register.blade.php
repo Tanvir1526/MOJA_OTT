@@ -21,7 +21,7 @@
 	<link rel="stylesheet" href="../../css/main.css">
 
 	<!-- Favicons -->
-	<link rel="icon" type="../../image/png" href="../../icon/favicon-32x32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="../../icon/favicon-32x32.png" sizes="32x32">
 	<link rel="apple-touch-icon" href="../../icon/favicon-32x32.png">
 	<link rel="apple-touch-icon" sizes="72x72" href="../../icon/apple-touch-icon-72x72.png">
 	<link rel="apple-touch-icon" sizes="114x114" href="../../icon/apple-touch-icon-114x114.png">
@@ -30,21 +30,25 @@
 	<meta name="description" content="">
 	<meta name="keywords" content="">
 	<meta name="author" content="Dmitry Volkov">
-	<title>MOJA – Online Movies, TV Shows & Cinema</title>
+	<title>Moja – Online Movies, TV Shows & Cinema HTML Template</title>
 
 </head>
 <body class="body">
 
-	<div class="sign section--bg" data-bg="../../img/section/section.jpg">
+	<div class="sign section--bg" data-bg="img/section/section.jpg">
 		<div class="container">
 			<div class="row">
 				<div class="col-12">
 					<div class="sign__content">
-						<!-- authorization form -->
+						<!-- registration form -->
 						<form action="#" class="sign__form">
 							<a href="#" class="sign__logo">
-								<img src="img/logo.svg" alt="">
+								<img src="../../img/logo.svg" alt="">
 							</a>
+
+							<div class="sign__group">
+								<input type="text" class="sign__input" placeholder="Name">
+							</div>
 
 							<div class="sign__group">
 								<input type="text" class="sign__input" placeholder="Email">
@@ -56,16 +60,14 @@
 
 							<div class="sign__group sign__group--checkbox">
 								<input id="remember" name="remember" type="checkbox" checked="checked">
-								<label for="remember">Remember Me</label>
+								<label for="remember">I agree to the <a href="#">Privacy Policy</a></label>
 							</div>
 							
-							<button class="sign__btn" type="button">Sign in</button>
+							<button class="sign__btn" type="button">Sign up</button>
 
-							<span class="sign__text">Don't have an account? <a href="{{Route('register')}}">Sign up!</a></span>
-
-							<span class="sign__text"><a href="#">Forgot password?</a></span>
+							<span class="sign__text">Already have an account? <a href="{{Route('login')}}">Sign in!</a></span>
 						</form>
-						<!-- end authorization form -->
+						<!-- registration form -->
 					</div>
 				</div>
 			</div>
