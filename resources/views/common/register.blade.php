@@ -19,6 +19,7 @@
 	<link rel="stylesheet" href="../../css/photoswipe.css">
 	<link rel="stylesheet" href="../../css/default-skin.css">
 	<link rel="stylesheet" href="../../css/main.css">
+	
 
 	<!-- Favicons -->
 	<link rel="icon" type="image/png" href="../../icon/favicon-32x32.png" sizes="32x32">
@@ -41,29 +42,53 @@
 				<div class="col-12">
 					<div class="sign__content">
 						<!-- registration form -->
-						<form action="#" class="sign__form">
-							<a href="#" class="sign__logo">
+						<form action="{{route('users.reg.submit')}}" method="post" class="sign__form">
+							<!--<a href="#" class="sign__logo">
 								<img src="../../img/logo.svg" alt="">
-							</a>
+							</a>-->
+							{{@csrf_field()}}
 
 							<div class="sign__group">
-								<input type="text" class="sign__input" placeholder="Name">
+								<input type="text" class="sign__input" value="{{old('name')}}" name="name" placeholder="Name"><br>
+								@error('name')
+        						<span class="text-danger">{{$message}}</span><br>
+								@enderror
 							</div>
 
 							<div class="sign__group">
-								<input type="text" class="sign__input" placeholder="Email">
+								<input type="text" class="sign__input" value="{{old('email')}}" name="email" placeholder="Email"><br>
+								@error('email')
+        						<span class="text-danger">{{$message}}</span><br>
+								@enderror
 							</div>
 
 							<div class="sign__group">
-								<input type="password" class="sign__input" placeholder="Password">
+								<input type="password" class="sign__input" value = "{{old('password')}}" name="password" placeholder="Password"><br>
+								@error('password')
+								<span class="text-danger">{{$message}}</span><br>
+								@enderror
 							</div>
 
-							<div class="sign__group sign__group--checkbox">
-								<input id="remember" name="remember" type="checkbox" checked="checked">
-								<label for="remember">I agree to the <a href="#">Privacy Policy</a></label>
+							<div class="sign__group">
+								<input type="password" class="sign__input" value = "{{old('conf_password')}}" name="conf_password" placeholder="Confirm Password"><br>
+								@error('conf_password')
+								<span class="text-danger">{{$message}}</span><br>
+								@enderror
 							</div>
+							<div class="sign__group">
+							Type : <select name="type" id="type">
+								
+								<option value="admin">Admin</option>
+								<option value="production">Production House</option>
+								<option value="premium">Premium Subscriber</option>
+								<option value="free">Free Subscriber</option>
+							</select>
+							@error('type')
+        					<span class="text-danger">{{$message}}</span><br>
+							@enderror
+							</div>
+							<input type="submit" class="sign__btn" value="Sign Up">							
 							
-							<button class="sign__btn" type="button">Sign up</button>
 
 							<span class="sign__text">Already have an account? <a href="{{Route('login')}}">Sign in!</a></span>
 						</form>

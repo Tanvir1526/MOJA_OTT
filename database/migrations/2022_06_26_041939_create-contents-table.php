@@ -27,8 +27,8 @@ class CreateContentsTable extends Migration
             $table->string('runtime');
             $table->string('director');
             $table->string('cast');
-            $table->bigInteger('person_id')->unsigned();
-            $table->foreign('person_id')->references('person_id')->on('persons');
+            $table->bigInteger('user_id')->unsigned();
+            $table->foreign('user_id')->references('user_id')->on('users');
             
             $table->timestamps();
         });

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePersonsTable extends Migration
+class CreatePremiumsubsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,11 @@ class CreatePersonsTable extends Migration
      */
     public function up()
     {
-        Schema::create('persons', function (Blueprint $table) {
-            $table->bigIncrements('person_id');
-            $table->string('name', 50);
-            $table->string('email', 50)->unique();
-            $table->string('password', 50);
-            $table->string('pro_pic', 50)->nullable();
-            $table->string('type', 50);
+        Schema::create('premiumsubs', function (Blueprint $table) {
+            $table->bigIncrements('premium_id');
+            $table->bigInteger('user_id')->unsigned();
+            $table->foreign('user_id')->references('user_id')->on('users');
             $table->timestamps();
-            
-            
         });
     }
 

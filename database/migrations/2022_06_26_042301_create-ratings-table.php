@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateReportsTable extends Migration
+class CreateRatingsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,14 @@ class CreateReportsTable extends Migration
      */
     public function up()
     {
-        Schema::create('reports', function (Blueprint $table) {
-            $table->bigIncrements('report_id');
-            $table->bigInteger('person_id')->unsigned();
-            $table->foreign('person_id')->references('person_id')->on('persons');
+        Schema::create('ratings', function (Blueprint $table) {
+            $table->bigIncrements('rating_id');
+            $table->bigInteger('user_id')->unsigned();
+            $table->foreign('user_id')->references('user_id')->on('users');
             $table->bigInteger('content_id')->unsigned();
             $table->foreign('content_id')->references('content_id')->on('contents');
-            $table->string('message');
+            $table->integer('rating');
+            
             
             $table->timestamps();
         });

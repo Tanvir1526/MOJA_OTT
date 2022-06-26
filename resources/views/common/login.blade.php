@@ -41,29 +41,30 @@
 				<div class="col-12">
 					<div class="sign__content">
 						<!-- authorization form -->
-						<form action="#" class="sign__form">
-							<a href="#" class="sign__logo">
-								<img src="img/logo.svg" alt="">
-							</a>
+						<form action="{{route('users.login.submit')}}" method="post" class="sign__form">
+						{{@csrf_field()}}
 
 							<div class="sign__group">
-								<input type="text" class="sign__input" placeholder="Email">
+							<input type="text" class="sign__input" value="{{old('email')}}" name="email" placeholder="Email"><br>
+								@error('email')
+        						<span class="text-danger">{{$message}}</span><br>
+								@enderror
 							</div>
 
 							<div class="sign__group">
-								<input type="password" class="sign__input" placeholder="Password">
+							<input type="password" class="sign__input" value = "{{old('password')}}" name="password" placeholder="Password"><br>
+								@error('password')
+								<span class="text-danger">{{$message}}</span><br>
+								@enderror
 							</div>
 
-							<div class="sign__group sign__group--checkbox">
-								<input id="remember" name="remember" type="checkbox" checked="checked">
-								<label for="remember">Remember Me</label>
-							</div>
 							
-							<button class="sign__btn" type="button">Sign in</button>
+							
+							<input type="submit" class="sign__btn" value="Sign Up">	
 
 							<span class="sign__text">Don't have an account? <a href="{{Route('register')}}">Sign up!</a></span>
 
-							<span class="sign__text"><a href="#">Forgot password?</a></span>
+							<!--<span class="sign__text"><a href="#">Forgot password?</a></span>-->
 						</form>
 						<!-- end authorization form -->
 					</div>

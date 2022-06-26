@@ -1,9 +1,10 @@
 <?php
-
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
-
+use App\Http\Controllers\PremiumController;
+use Illuminate\Http\Request;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,7 +18,31 @@ use App\Http\Controllers\AdminController;
 
 //_____________Common routes_____________
 Route::get('/', [HomeController::class, 'login'])->name('login');
+Route::post('/users.login', [HomeController::class, 'loginSubmit'])->name('users.login.submit');
 Route::get('/Register', [HomeController::class, 'register'])->name('register');
+Route::post('/users.reg',[HomeController::class, 'regSubmit'])->name('users.reg.submit');
 
 //_____________Admin routes_____________
 Route::get('/Admin', [HomeController::class, 'adminDashboard'])->name('admin.Dashboard');
+
+
+//_____________Email Verification_____________
+Route::get('/email/verify', function () {
+    return view('auth.verify-email');
+})->middleware('auth')->name('verification.notice');
+
+Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
+    $request->fulfill();
+ 
+    return redirect('/common/login');
+})->middleware(['auth', 'signed'])->name('verification.verify');
+
+
+Route::post('/email/verification-notification', function (Request $request) {
+    $request->user()->sendEmailVerificationNotification();
+ 
+    return back()->with('message', 'Verification link sent!');
+})->middleware(['auth', 'throttle:6,1'])->name('verification.send');
+
+//_____________Premium Subscriber routes_____________
+Route::get('/Premium', [PremiumController::class, 'dashboard'])->name('premium.dashboard')->middleware('verified')->middleware('logged.user');
