@@ -43,18 +43,9 @@ class HomeController extends Controller
         {
             session()->flash('msg','User not valid');
             return back();
-            //return redirect()->route('common.login');
+            
         }
-        /* if($user!=null){
-                            
-            session()->put('logged',$user->user_id);
-            return redirect()->route('premium.dashboard');
-                
-        }
-        else {
-            session()->flash('msg','User not valid');
-            return back();
-            } */
+       
         
     }
     

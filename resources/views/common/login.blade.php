@@ -1,3 +1,4 @@
+<h5>{{Session::get('msg')}}</h5>
 <!DOCTYPE html>
 <html lang="en">
 
