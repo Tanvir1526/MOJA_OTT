@@ -63,22 +63,22 @@
 							</div>
 
 							<div class="sign__group">
-								<input type="password" class="sign__input" value = "{{old('password')}}" name="password" placeholder="Password"><br>
+								<input type="password" class="sign__input"  name="password" placeholder="Password"><br>
 								@error('password')
 								<span class="text-danger">{{$message}}</span><br>
 								@enderror
 							</div>
 
 							<div class="sign__group">
-								<input type="password" class="sign__input" value = "{{old('conf_password')}}" name="conf_password" placeholder="Confirm Password"><br>
+								<input type="password" class="sign__input"  name="conf_password" placeholder="Confirm Password"><br>
 								@error('conf_password')
 								<span class="text-danger">{{$message}}</span><br>
 								@enderror
 							</div>
 							<div class="sign__group">
-							Type : <select name="type" id="type">
-								
-								<option value="admin">Admin</option>
+							<label for="Type"class="sign__text" >Type :</label>
+							 <select name="type" id="type">
+							 	<option value="">Select Type</option>
 								<option value="production">Production House</option>
 								<option value="premium">Premium Subscriber</option>
 								<option value="free">Free Subscriber</option>

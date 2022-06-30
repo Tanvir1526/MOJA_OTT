@@ -47,12 +47,12 @@
 							<div class="sign__group">
 							<input type="text" class="sign__input" value="{{old('email')}}" name="email" placeholder="Email"><br>
 								@error('email')
-        						<span class="text-danger">{{$message}}</span><br>
+        						<span class="text-danger" >{{$message}}</span><br>
 								@enderror
 							</div>
 
 							<div class="sign__group">
-							<input type="password" class="sign__input" value = "{{old('password')}}" name="password" placeholder="Password"><br>
+							<input type="password" class="sign__input"  name="password" placeholder="Password"><br>
 								@error('password')
 								<span class="text-danger">{{$message}}</span><br>
 								@enderror
@@ -60,7 +60,7 @@
 
 							
 							
-							<input type="submit" class="sign__btn" value="Sign Up">	
+							<input type="submit" class="sign__btn" value="Sign in">	
 
 							<span class="sign__text">Don't have an account? <a href="{{Route('register')}}">Sign up!</a></span>
 

@@ -9,6 +9,6 @@ class AdminController extends Controller
     //
     function adminDashboard()
     {
-        return view('common.register');
+        return view('admin.dashboard');
     }
 }

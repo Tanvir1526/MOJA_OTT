@@ -39,7 +39,7 @@ class HomeController extends Controller
     }
     
         
-    }
+    
     function register()
     {
         return view('common.register');
@@ -84,3 +84,4 @@ class HomeController extends Controller
                         return view('auth.verify-email');
     }
 
+}
