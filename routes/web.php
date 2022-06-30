@@ -25,7 +25,11 @@ Route::post('/users.reg',[HomeController::class, 'regSubmit'])->name('users.reg.
 Route::get('/logout',[HomeController::class, 'logout'])->name('logout');
 
 //_____________Admin routes_____________
-Route::get('/Admin', [AdminController::class, 'dashboard'])->name('admin.dashboard')->middleware('logged.user');
+Route::group(['middleware' => ['admin_panel']],function(){
+    Route::get('/Admin', [AdminController::class, 'dashboard'])->name('admin.dashboard');
+    
+
+});
 
 
 //_____________Email Verification_____________

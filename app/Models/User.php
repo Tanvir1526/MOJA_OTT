@@ -46,5 +46,8 @@ class User extends Authenticatable implements MustVerifyEmail
         'email_verified_at' => 'datetime',
     ];
      
-
+    function admin()
+    {
+        return $this->hasOne('App\Models\admin', 'user_id', 'admin_id');
+    }
 }
