@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PremiumController;
+use App\Http\Controllers\VerifyEmailController;
 use Illuminate\Http\Request;
 /*
 |--------------------------------------------------------------------------
@@ -23,7 +24,7 @@ Route::get('/Register', [HomeController::class, 'register'])->name('register');
 Route::post('/users.reg',[HomeController::class, 'regSubmit'])->name('users.reg.submit');
 
 //_____________Admin routes_____________
-Route::get('/Admin', [HomeController::class, 'adminDashboard'])->name('admin.Dashboard');
+Route::get('/Admin', [AdminController::class, 'dashboard'])->name('admin.dashboard')->middleware('logged.user');
 
 
 //_____________Email Verification_____________
@@ -31,11 +32,9 @@ Route::get('/email/verify', function () {
     return view('auth.verify-email');
 })->middleware('auth')->name('verification.notice');
 
-Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
-    $request->fulfill();
- 
-    return redirect('/common/login');
-})->middleware(['auth', 'signed'])->name('verification.verify');
+
+
+Route::get('/email/verify/{id}/{hash}', [VerifyEmailController::class, '__invoke'])->middleware(['signed', 'throttle:6,1'])->name('verification.verify');
 
 
 Route::post('/email/verification-notification', function (Request $request) {
@@ -45,4 +44,4 @@ Route::post('/email/verification-notification', function (Request $request) {
 })->middleware(['auth', 'throttle:6,1'])->name('verification.send');
 
 //_____________Premium Subscriber routes_____________
-Route::get('/Premium', [PremiumController::class, 'dashboard'])->name('premium.dashboard')->middleware('verified')->middleware('logged.user');
+Route::get('/Premium', [PremiumController::class, 'dashboard'])->name('premium.dashboard')->middleware('logged.user');

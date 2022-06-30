@@ -10,9 +10,9 @@ class HomeController extends Controller
     {
         return view('common.login');
     }
-    function loginSubmit(Request $request)
+    function loginSubmit(Request $req)
     {
-        $request->validate([
+        $req->validate([
             'email' => 'required',
             'password' => 'required',
         ],
@@ -21,12 +21,31 @@ class HomeController extends Controller
         'password.required' => 'Password is required',
         ]);
 
-        $user = User::where('email', $request->email)
-                         ->where('password', $request->password)
-                         ->where('type', $request->type)
+        $user = User::where('email', $req->email)->where('password',$req->password)
                          ->first();
-        if($user){
-                            //session()->flash('msg','User Exists');
+        //$password = $req->input('password');
+        if($req->email==$user->email && $req->password==$user->password)
+        {
+            if($user->type=='premium')
+            {
+                session()->put('logged', $user->email);
+                return redirect()->route('premium.dashboard');
+            }
+            else if($user->type=='admin')
+            {
+                session()->put('logged', $user->email);
+                return redirect()->route('admin.dashboard');
+            }
+            
+        }
+        else
+        {
+            session()->flash('msg','User not valid');
+            return back();
+            //return redirect()->route('common.login');
+        }
+        /* if($user!=null){
+                            
             session()->put('logged',$user->user_id);
             return redirect()->route('premium.dashboard');
                 
@@ -34,7 +53,7 @@ class HomeController extends Controller
         else {
             session()->flash('msg','User not valid');
             return back();
-            }
+            } */
         
     }
     
