@@ -94,5 +94,10 @@ class HomeController extends Controller
                         event(new Registered($user));
                         return view('auth.verify-email');
     }
+    function logout(){
+        session()->forget('logged');
+        session()->flash('msg','Sucessfully Logged out');
+        return redirect()->route('login');
+    }
 
 }

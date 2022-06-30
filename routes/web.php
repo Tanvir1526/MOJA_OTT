@@ -22,6 +22,7 @@ Route::get('/', [HomeController::class, 'login'])->name('login');
 Route::post('/users.login', [HomeController::class, 'loginSubmit'])->name('users.login.submit');
 Route::get('/Register', [HomeController::class, 'register'])->name('register');
 Route::post('/users.reg',[HomeController::class, 'regSubmit'])->name('users.reg.submit');
+Route::get('/logout',[HomeController::class, 'logout'])->name('logout');
 
 //_____________Admin routes_____________
 Route::get('/Admin', [AdminController::class, 'dashboard'])->name('admin.dashboard')->middleware('logged.user');
@@ -45,3 +46,4 @@ Route::post('/email/verification-notification', function (Request $request) {
 
 //_____________Premium Subscriber routes_____________
 Route::get('/Premium', [PremiumController::class, 'dashboard'])->name('premium.dashboard')->middleware('logged.user');
+Route::get('/Premium/Profile', [PremiumController::class, 'profile'])->name('premium.profile')->middleware('logged.user');
