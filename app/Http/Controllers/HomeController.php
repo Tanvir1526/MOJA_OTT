@@ -24,7 +24,8 @@ class HomeController extends Controller
         $user = User::where('email', $req->email)->where('password',$req->password)
                          ->first();
         //$password = $req->input('password');
-        if($req->email==$user->email && $req->password==$user->password)
+
+        if($user)
         {
             if($user->type=='premium')
             {
