@@ -15,7 +15,7 @@ class PremiumController extends Controller
     }
     function profile()
     {
-        $user = User::where('user_id',session()->get('logged'))->first();
+        $user = User::where('email',session()->get('logged'))->first();
         return view('premium.profile')->with('user',$user);
         
         
