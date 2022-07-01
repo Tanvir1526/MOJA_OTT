@@ -79,9 +79,11 @@
 							<label for="Type"class="sign__text" >Type :</label>
 							 <select name="type" id="type">
 							 	<option value="">Select Type</option>
-								<option value="production">Production House</option>
-								<option value="premium">Premium Subscriber</option>
+								 <option value="premium">Premium Subscriber</option>
 								<option value="free">Free Subscriber</option>
+								<option value="admin">Admin</option>
+								<option value="production">Production House</option>
+								
 							</select>
 							@error('type')
         					<span class="text-danger">{{$message}}</span><br>
