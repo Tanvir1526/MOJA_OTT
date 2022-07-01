@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class UpdateUsersTable extends Migration
+class UpdateContentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,8 @@ class UpdateUsersTable extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->renameColumn('id', 'user_id');
-            $table->string('type');
-            $table->string('pro_pic')->nullable();
+        Schema::table('contents', function (Blueprint $table) {
+            $table->string('content_type')->nullable(true);
         });
     }
 

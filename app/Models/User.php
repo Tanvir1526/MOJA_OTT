@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use App\Models\PremiumModel;
+use App\Models\ContentModel;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -55,5 +56,9 @@ class User extends Authenticatable implements MustVerifyEmail
     function premium()
     {
         return $this->hasMany(PremiumModel::class, 'user_id', 'user_id');
+    }
+    function content()
+    {
+        return $this->hasMany(ContentModel::class, 'user_id', 'user_id');
     }
 }

@@ -11,7 +11,7 @@
 <!-- userprofile14:04-->
 <head>
 	<!-- Basic need -->
-	<title>Open Pediatrics</title>
+	<title>Moja – Online Movies, TV Shows & Cinema HTML Template</title>
 	<meta charset="UTF-8">
 	<meta name="description" content="">
 	<meta name="keywords" content="">
@@ -27,9 +27,25 @@
 	<!-- CSS files -->
 	<link rel="stylesheet" href="../../css/plugins.css">
 	<link rel="stylesheet" href="../../css/style.css">
+	<link rel="stylesheet" href="../../css/bootstrap-reboot.min.css">
+	<link rel="stylesheet" href="../../css/bootstrap-grid.min.css">
+	<link rel="stylesheet" href="../../css/owl.carousel.min.css">
+	<link rel="stylesheet" href="../../css/jquery.mCustomScrollbar.min.css">
+	<link rel="stylesheet" href="../../css/nouislider.min.css">
+	<link rel="stylesheet" href="../../css/ionicons.min.css">
+	<link rel="stylesheet" href="../../css/plyr.css">
+	<link rel="stylesheet" href="../../css/photoswipe.css">
+	<link rel="stylesheet" href="../../css/default-skin.css">
+	<link rel="stylesheet" href="../../css/main.css">
+    <!-- Favicons -->
+	<link rel="icon" type="image/png" href="icon/favicon-32x32.png" sizes="32x32">
+	<link rel="apple-touch-icon" href="icon/favicon-32x32.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="icon/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="icon/apple-touch-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="icon/apple-touch-icon-144x144.png">
 
 </head>
-<body>
+<body class="body">
 <!--preloading-->
 <div id="preloader">
     <img class="logo" src="../../images/logo1.png" alt="" width="119" height="58">
@@ -40,196 +56,117 @@
 </div>
 <!--end of preloading-->
 <!--login form popup-->
-<div class="login-wrapper" id="login-content">
-    <div class="login-content">
-        <a href="#" class="close">x</a>
-        <h3>Login</h3>
-        <form method="post" action="#">
-        	<div class="row">
-        		 <label for="username">
-                    Username:
-                    <input type="text" name="username" id="username" placeholder="Hugh Jackman" pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{8,20}$" required="required" />
-                </label>
-        	</div>
-           
-            <div class="row">
-            	<label for="password">
-                    Password:
-                    <input type="password" name="password" id="password" placeholder="******" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" required="required" />
-                </label>
-            </div>
-            <div class="row">
-            	<div class="remember">
-					<div>
-						<input type="checkbox" name="remember" value="Remember me"><span>Remember me</span>
-					</div>
-            		<a href="#">Forget password ?</a>
-            	</div>
-            </div>
-           <div class="row">
-           	 <button type="submit">Login</button>
-           </div>
-        </form>
-        <div class="row">
-        	<p>Or via social</p>
-            <div class="social-btn-2">
-            	<a class="fb" href="#"><i class="ion-social-facebook"></i>Facebook</a>
-            	<a class="tw" href="#"><i class="ion-social-twitter"></i>twitter</a>
-            </div>
-        </div>
-    </div>
-</div>
+
 <!--end of login form popup-->
 <!--signup form popup-->
-<div class="login-wrapper"  id="signup-content">
-    <div class="login-content">
-        <a href="#" class="close">x</a>
-        <h3>sign up</h3>
-        <form method="post" action="#">
-            <div class="row">
-                 <label for="username-2">
-                    Username:
-                    <input type="text" name="username" id="username-2" placeholder="Hugh Jackman" pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{8,20}$" required="required" />
-                </label>
-            </div>
-           
-            <div class="row">
-                <label for="email-2">
-                    your email:
-                    <input type="password" name="email" id="email-2" placeholder="" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" required="required" />
-                </label>
-            </div>
-             <div class="row">
-                <label for="password-2">
-                    Password:
-                    <input type="password" name="password" id="password-2" placeholder="" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" required="required" />
-                </label>
-            </div>
-             <div class="row">
-                <label for="repassword-2">
-                    re-type Password:
-                    <input type="password" name="password" id="repassword-2" placeholder="" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" required="required" />
-                </label>
-            </div>
-           <div class="row">
-             <button type="submit">sign up</button>
-           </div>
-        </form>
-    </div>
-</div>
+
 <!--end of signup form popup-->
 
 <!-- BEGIN | Header -->
-<header class="ht-header">
-	<div class="container">
-		<nav class="navbar navbar-default navbar-custom">
-				<!-- Brand and toggle get grouped for better mobile display -->
-				<div class="navbar-header logo">
-				    <div class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-					    <span class="sr-only">Toggle navigation</span>
-					    <div id="nav-icon1">
-							<span></span>
-							<span></span>
-							<span></span>
-						</div>
-				    </div>
-				    <a href="../../index-2.html"><img class="logo" src="../../images/logo1.png" alt="" width="119" height="58"></a>
-			    </div>
-				<!-- Collect the nav links, forms, and other content for toggling -->
-				<div class="collapse navbar-collapse flex-parent" id="bs-example-navbar-collapse-1">
-					<ul class="nav navbar-nav flex-child-menu menu-left">
-						<li class="hidden">
-							<a href="#page-top"></a>
-						</li>
-						<li class="dropdown first">
-							<a class="btn btn-default dropdown-toggle lv1" data-toggle="dropdown">
-							Home <i class="fa fa-angle-down" aria-hidden="true"></i>
+<!-- header -->
+<header class="header">
+		<div class="header__wrap">
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+						<div class="header__content">
+							<!-- header logo -->
+							<a href="index.html" class="header__logo">
+								MOJA
 							</a>
-							<ul class="dropdown-menu level1">
-								<li><a href="index-2.html">Home 01</a></li>
-								<li><a href="homev2.html">Home 02</a></li>
-								<li><a href="homev3.html">Home 03</a></li>
-							</ul>
-						</li>
-						<li class="dropdown first">
-							<a class="btn btn-default dropdown-toggle lv1" data-toggle="dropdown" data-hover="dropdown">
-							movies<i class="fa fa-angle-down" aria-hidden="true"></i>
-							</a>
-							<ul class="dropdown-menu level1">
-								<li class="dropdown">
-									<a href="#" class="dropdown-toggle" data-toggle="dropdown" >Movie grid<i class="ion-ios-arrow-forward"></i></a>
-									<ul class="dropdown-menu level2">
-										<li><a href="moviegrid.html">Movie grid</a></li>
-										<li><a href="moviegridfw.html">movie grid full width</a></li>
+							<!-- end header logo -->
+
+							<!-- header nav -->
+							<ul class="header__nav">
+								<!-- dropdown -->
+								<li class="header__nav-item">
+									<a class="dropdown-toggle header__nav-link" href="#" role="button" id="dropdownMenuHome" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Home</a>
+
+									<ul class="dropdown-menu header__dropdown-menu" aria-labelledby="dropdownMenuHome">
+										<li><a href="index.html">Home slideshow bg</a></li>
+										<li><a href="index2.html">Home static bg</a></li>
 									</ul>
-								</li>			
-								<li><a href="movielist.html">Movie list</a></li>
-								<li><a href="moviesingle.html">Movie single</a></li>
-								<li class="it-last"><a href="seriessingle.html">Series single</a></li>
+								</li>
+								<!-- end dropdown -->
+
+								<!-- dropdown -->
+								<li class="header__nav-item">
+									<a class="dropdown-toggle header__nav-link" href="#" role="button" id="dropdownMenuCatalog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Catalog</a>
+
+									<ul class="dropdown-menu header__dropdown-menu" aria-labelledby="dropdownMenuCatalog">
+										<li><a href="catalog1.html">Catalog Grid</a></li>
+										<li><a href="catalog2.html">Catalog List</a></li>
+										<li><a href="details1.html">Details Movie</a></li>
+										<li><a href="details2.html">Details TV Series</a></li>
+									</ul>
+								</li>
+								<!-- end dropdown -->
+
+								<li class="header__nav-item">
+									<a href="pricing.html" class="header__nav-link">Pricing Plan</a>
+								</li>
+
+								<li class="header__nav-item">
+									<a href="{{Route('premium.profile')}}" class="header__nav-link">Profile</a>
+								</li>
+
+								<!-- dropdown -->
+								<li class="dropdown header__nav-item">
+									<a class="dropdown-toggle header__nav-link header__nav-link--more" href="#" role="button" id="dropdownMenuMore" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="icon ion-ios-more"></i></a>
+
+									<ul class="dropdown-menu header__dropdown-menu" aria-labelledby="dropdownMenuMore">
+										<li><a href="about.html">About</a></li>
+										
+										<li><a href="404.html">404 Page</a></li>
+									</ul>
+								</li>
+								<!-- end dropdown -->
 							</ul>
-						</li>
-						<li class="dropdown first">
-							<a class="btn btn-default dropdown-toggle lv1" data-toggle="dropdown" data-hover="dropdown">
-							celebrities <i class="fa fa-angle-down" aria-hidden="true"></i>
-							</a>
-							<ul class="dropdown-menu level1">
-								<li><a href="celebritygrid01.html">celebrity grid 01</a></li>
-								<li><a href="celebritygrid02.html">celebrity grid 02 </a></li>
-								<li><a href="celebritylist.html">celebrity list</a></li>
-								<li class="it-last"><a href="celebritysingle.html">celebrity single</a></li>
-							</ul>
-						</li>
-						<li class="dropdown first">
-							<a class="btn btn-default dropdown-toggle lv1" data-toggle="dropdown" data-hover="dropdown">
-							news <i class="fa fa-angle-down" aria-hidden="true"></i>
-							</a>
-							<ul class="dropdown-menu level1">
-								<li><a href="bloglist.html">blog List</a></li>
-								<li><a href="bloggrid.html">blog Grid</a></li>
-								<li class="it-last"><a href="blogdetail.html">blog Detail</a></li>
-							</ul>
-						</li>
-						<li class="dropdown first">
-							<a class="btn btn-default dropdown-toggle lv1" data-toggle="dropdown" data-hover="dropdown">
-							community <i class="fa fa-angle-down" aria-hidden="true"></i>
-							</a>
-							<ul class="dropdown-menu level1">
-								<li><a href="userfavoritegrid.html">user favorite grid</a></li>
-								<li><a href="userfavoritelist.html">user favorite list</a></li>
-								<li><a href="userprofile.html">user profile</a></li>
-								<li class="it-last"><a href="userrate.html">user rate</a></li>
-							</ul>
-						</li>
-					</ul>
-					<ul class="nav navbar-nav flex-child-menu menu-right">
-						<li class="dropdown first">
-							<a class="btn btn-default dropdown-toggle lv1" data-toggle="dropdown" data-hover="dropdown">
-							pages <i class="fa fa-angle-down" aria-hidden="true"></i>
-							</a>
-							<ul class="dropdown-menu level1">
-								<li><a href="landing.html">Landing</a></li>
-								<li><a href="404.html">404 Page</a></li>
-								<li class="it-last"><a href="comingsoon.html">Coming soon</a></li>
-							</ul>
-						</li>                
-						<li><a href="#">Help</a></li>
-						<li class="loginLink"><a href="#">LOG In</a></li>
-						<li class="btn signupLink"><a href="#">sign up</a></li>
-					</ul>
+							<!-- end header nav -->
+
+							<!-- header auth -->
+							<div class="header__auth">
+								<button class="header__search-btn" type="button">
+									<i class="icon ion-ios-search"></i>
+								</button>
+
+								<a href="{{Route('logout')}}" class="header__sign-in">
+									<i class="icon ion-ios-log-in"></i>
+									<span>logout</span>
+								</a>
+							</div>
+							<!-- end header auth -->
+
+							<!-- header menu btn -->
+							<button class="header__btn" type="button">
+								<span></span>
+								<span></span>
+								<span></span>
+							</button>
+							<!-- end header menu btn -->
+						</div>
+					</div>
 				</div>
-			<!-- /.navbar-collapse -->
-	    </nav>
-	    
-	    <!-- top search form -->
-	    <div class="top-search">
-	    	<select>
-				<option value="united">TV show</option>
-				<option value="saab">Others</option>
-			</select>
-			<input type="text" placeholder="Search for a movie, TV Show or celebrity that you are looking for">
-	    </div>
-	</div>
-</header>
+			</div>
+		</div>
+
+		<!-- header search -->
+		<form action="#" class="header__search">
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+						<div class="header__search-content">
+							<input type="text" placeholder="Search for a movie, TV Series that you are looking for">
+
+							<button type="button">search</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+		<!-- end header search -->
+	</header>
+	<!-- end header -->
 <!-- END | Header -->
 
 <div class="hero user-hero">
@@ -260,8 +197,8 @@
 						<p>Account Details</p>
 						<ul>
 							<li  class="active"><a href="userprofile.html">Profile</a></li>
-							<li><a href="userfavoritelist.html">Favorite movies</a></li>
-							<li><a href="userrate.html">Rated movies</a></li>
+							<li><a href="userfavoritelist.html">My List</a></li>
+							<li><a href="userrate.html">Delete Profile</a></li>
 						</ul>
 					</div>
 					<div class="user-fav">

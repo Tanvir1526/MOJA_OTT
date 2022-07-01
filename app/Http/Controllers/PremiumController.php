@@ -5,13 +5,16 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\PremiumModel;
+use App\Models\ContentModel;
+
 
 class PremiumController extends Controller
 {
     function dashboard()
     {
-        
-        return view('premium.dashboard');
+        $user = User::where('email',session()->get('logged'))->first();
+        $movielist = ContentModel::all();
+        return view('premium.dashboard')->with('movielist',$movielist)->with('user',$user);
     }
     function profile()
     {

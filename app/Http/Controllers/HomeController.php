@@ -37,6 +37,11 @@ class HomeController extends Controller
                 session()->put('logged', $user->email);
                 return redirect()->route('admin.dashboard');
             }
+            else if($user->type=='production')
+            {
+                session()->put('logged', $user->email);
+                return redirect()->route('production.dashboard');
+            }
             
         }
         else
@@ -60,7 +65,7 @@ class HomeController extends Controller
         @$this->validate($req,
                         [
                             "name"=>"required|max:20|regex:/^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/",
-                            "email"=>"required|regex:/^([1-9]{2}-[0-9]{5}-[1-3]{1})\@student\.aiub\.edu+$/",
+                            "email"=>"required|email",
                             "password"=>"required|min:8|regex:/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/",
                             "conf_password"=>"required|same:password",
                             "type"=>"required"
@@ -69,7 +74,7 @@ class HomeController extends Controller
                         [
                             "name.required"=> "Please Enter Your Name",
                             "name.max"=> "Maximum 20 Characters",
-                            "name.regex"=>"Please Enter A Valid Name",
+                            "name.email"=>"Please Enter A Valid Name",
                             "email.required"=>"Please Enter Your Email Address",
                             "email.regex"=>"Please Enter A Valid Email Address",
                             "password.required"=>"Please Enter A Password",

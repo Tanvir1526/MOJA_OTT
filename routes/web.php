@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PremiumController;
 use App\Http\Controllers\VerifyEmailController;
+use App\Http\Controllers\ProductionController;
 use Illuminate\Http\Request;
 /*
 |--------------------------------------------------------------------------
@@ -53,3 +54,10 @@ Route::get('/Premium', [PremiumController::class, 'dashboard'])->name('premium.d
 Route::get('/Premium/Profile', [PremiumController::class, 'profile'])->name('premium.profile')->middleware('logged.user');
 Route::post('/Premium.ProfileUpdate', [PremiumController::class, 'updateSubmit'])->name('users.update.submit')->middleware('logged.user');
 Route::post('/Premium.ProfileUpdatePassword', [PremiumController::class, 'updatePasswordSubmit'])->name('users.update.password')->middleware('logged.user');
+
+
+
+//_____________Production routes_____________
+Route::get('/Production', [ProductionController::class, 'dashboard'])->name('production.dashboard')->middleware('logged.user');
+Route::get('/Production/Upload', [ProductionController::class, 'upload'])->name('production.upload')->middleware('logged.user');
+Route::post('/Production/Upload/Submit', [ProductionController::class, 'uploadSubmit'])->name('production.upload.submit')->middleware('logged.user');
