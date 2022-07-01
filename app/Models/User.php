@@ -50,7 +50,7 @@ class User extends Authenticatable implements MustVerifyEmail
      
     function admin()
     {
-        return $this->hasOne('App\Models\admin', 'user_id', 'admin_id');
+        return $this->hasOne(admin::class, 'user_id', 'admin_id');
     }
     function premium()
     {
