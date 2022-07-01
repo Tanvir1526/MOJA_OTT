@@ -6,6 +6,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\Models\PremiumModel;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -18,6 +19,7 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     protected $table = 'users';
     protected $primaryKey = 'user_id'; 
+    protected $timestamp = false;
     protected $fillable = [
         'name',
         'email',
@@ -49,5 +51,9 @@ class User extends Authenticatable implements MustVerifyEmail
     function admin()
     {
         return $this->hasOne('App\Models\admin', 'user_id', 'admin_id');
+    }
+    function premium()
+    {
+        return $this->hasMany(PremiumModel::class, 'user_id', 'user_id');
     }
 }
