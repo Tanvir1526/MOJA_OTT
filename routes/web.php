@@ -54,8 +54,11 @@ Route::get('/Premium', [PremiumController::class, 'dashboard'])->name('premium.d
 Route::get('/Premium/Profile', [PremiumController::class, 'profile'])->name('premium.profile')->middleware('logged.user');
 Route::post('/Premium.ProfileUpdate', [PremiumController::class, 'updateSubmit'])->name('users.update.submit')->middleware('logged.user');
 Route::post('/Premium.ProfileUpdatePassword', [PremiumController::class, 'updatePasswordSubmit'])->name('users.update.password')->middleware('logged.user');
-
-
+Route::get('/Premium/Inside/{id}', [PremiumController::class, 'inside'])->name('premium.inside')->middleware('logged.user');
+Route::post('/Premium/RatingSubmit', [PremiumController::class, 'ratingSubmit'])->name('premium.rating.submit')->middleware('logged.user');
+Route::post('/Premium/ReportSubmit', [PremiumController::class, 'reportSubmit'])->name('premium.report.submit')->middleware('logged.user');
+Route::post('/Premium/MyListSubmit', [PremiumController::class, 'mylistSubmit'])->name('premium.mylist.submit')->middleware('logged.user');
+Route::get('/Premium/MyList', [PremiumController::class, 'mylist'])->name('premium.mylist')->middleware('logged.user');
 
 //_____________Production routes_____________
 Route::get('/Production', [ProductionController::class, 'dashboard'])->name('production.dashboard')->middleware('logged.user');

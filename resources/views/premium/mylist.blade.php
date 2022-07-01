@@ -1,0 +1,4 @@
+mylist
+
+{{$mylist->contents->title)}}
+

@@ -8,6 +8,9 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use App\Models\PremiumModel;
 use App\Models\ContentModel;
+use App\Models\RatingModel;
+use App\Models\ReportModel;
+use App\Models\MyListModel;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -60,5 +63,17 @@ class User extends Authenticatable implements MustVerifyEmail
     function content()
     {
         return $this->hasMany(ContentModel::class, 'user_id', 'user_id');
+    }
+    function rating()
+    {
+        return $this->hasMany(RatingModel::class, 'user_id', 'user_id');
+    }
+    function report()
+    {
+        return $this->hasMany(ReportModel::class, 'user_id', 'user_id');
+    }
+    function mylist()
+    {
+        return $this->hasMany(MyListModel::class, 'user_id', 'user_id');
     }
 }
