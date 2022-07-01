@@ -151,6 +151,7 @@ class PremiumController extends Controller
     {
         $user = User::where('email',session()->get('logged'))->first();
         $mylist = MyListModel::where('user_id',$user->user_id)->first();
+        
         return view('premium.mylist')->with('mylist',$mylist);
     }
     function mylistSubmit(Request $req)
