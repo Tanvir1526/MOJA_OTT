@@ -70,7 +70,7 @@ Route::post('/Production/Upload/Submit', [ProductionController::class, 'uploadSu
 
 
 // SSLCOMMERZ Start
-Route::get('/example1', [SslCommerzPaymentController::class, 'exampleEasyCheckout']);
+Route::get('/example1', [SslCommerzPaymentController::class, 'exampleEasyCheckout'])->middleware('logged.user');
 Route::post('/paymentsubmit', [SslCommerzPaymentController::class, 'payViaAjax'])->name('paymentsubmit');
 Route::get('/example2', [SslCommerzPaymentController::class, 'exampleHostedCheckout']);
 
