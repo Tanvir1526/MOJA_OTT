@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\PremiumModel;
 use App\Models\ContentModel;
+use App\Models\RatingModel;
+use App\Models\ReportModel;
+use App\Models\MyListModel;
 
 
 class PremiumController extends Controller
@@ -28,18 +31,18 @@ class PremiumController extends Controller
         
         @$this->validate($req,
                         [
-                            "name"=>"required|max:20|regex:/^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/",
-                            "email"=>"required|regex:/^([1-9]{2}-[0-9]{5}-[1-3]{1})\@student\.aiub\.edu+$/",
+                            "name"=>"max:20|regex:/^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/",
+                            "email"=>"email",
                             
                             
                 
                         ],
                         [
-                            "name.required"=> "Please Enter Your Name",
+                            
                             "name.max"=> "Maximum 20 Characters",
                             "name.regex"=>"Please Enter A Valid Name",
-                            "email.required"=>"Please Enter Your Email Address",
-                            "email.regex"=>"Please Enter A Valid Email Address",
+                            
+                            "email.email"=>"Please Enter A Valid Email Address",
                             
                             
                         ]
@@ -87,5 +90,101 @@ class PremiumController extends Controller
             return back();
         }
 
+    }
+    function inside(Request $req)
+    {
+        $user = User::where('email',session()->get('logged'))->first();
+        $content = ContentModel::where('content_id',$req->id)->first();
+        $rating = RatingModel::where('content_id', $content->content_id)->first();
+        return view('premium.inside')->with('content',$content)->with('user',$user)->with('rating',$rating);
+    }
+    function ratingSubmit(Request $req)
+    {
+        
+
+        $content_id = $req->input('content_id');
+        $user_id = $req->input('user_id');
+        $user = User::where('email',session()->get('logged'))->first();
+        
+        
+        $rating = RatingModel::where('user_id',$user_id)->where('content_id',$content_id)->first();
+        if($rating == null){
+        $rating = new RatingModel();
+        $rating->user_id = $user->user_id;
+        $rating->content_id = $req->content_id;
+        $rating->rating = $req->rating;
+        $rating->save();
+        }
+        else{
+            
+            session()->flash('msg','Already rated'); 
+        }
+        return redirect()->route('premium.inside',['id'=>$content_id]);
+        //return view('premium.inside')->with('id',$req->content_id)->with('rating', $rating);
+        //return view('premium.dashboard');
+        
+        
+    }
+    function reportSubmit(Request $req)
+    {
+        $content_id = $req->input('content_id');
+        $user_id = $req->input('user_id');
+        $user = User::where('email',session()->get('logged'))->first();
+        
+        
+        $report = ReportModel::where('user_id',$user_id)->where('content_id',$content_id)->first();
+        if($report == null){
+        $report = new ReportModel();
+        $report->user_id = $user->user_id;
+        $report->content_id = $req->content_id;
+        $report->message = $req->report;
+        $report->save();
+        }
+        else{
+            
+            session()->flash('msg','Already reported'); 
+        }
+        return redirect()->route('premium.inside',['id'=>$content_id]);
+       
+    }
+    function mylist()
+    {
+        $user = User::where('email',session()->get('logged'))->first();
+        $mylist = MyListModel::where('user_id',$user->user_id)->get();
+        //return $mylist;
+        
+        return view('premium.mylist')->with('mylist',$mylist);
+    }
+    function mylistSubmit(Request $req)
+    {
+        $content_id = $req->input('content_id');
+        $user_id = $req->input('user_id');
+        $user = User::where('email',session()->get('logged'))->first();
+        
+        
+        $mylist = MyListModel::where('user_id',$user_id)->where('content_id',$content_id)->first();
+        if($mylist == null){
+        $mylist = new MyListModel();
+        $mylist->user_id = $user->user_id;
+        $mylist->content_id = $req->content_id;
+        $mylist->save();
+        }
+        else{
+            
+            session()->flash('msg3','Already added'); 
+        }
+        return redirect()->route('premium.inside',['id'=>$content_id]);
+    }
+    function searchSubmit(Request $req)
+    {
+        $user = User::where('email',session()->get('logged'))->first();
+        $search = $req->input('search');
+        $content = ContentModel::where('title','like','%'.$search.'%')->get();
+        return view('premium.searchResult')->with('content',$content)->with('user',$user);
+    }
+    function payment()
+    {
+        $user = User::where('email',session()->get('logged'))->first();
+        return view('premium.payment')->with('user',$user);
     }
 }

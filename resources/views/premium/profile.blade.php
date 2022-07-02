@@ -176,7 +176,7 @@
 				<div class="hero-ct">
 					<h1>{{ $user->name }}’s profile</h1>
 					<ul class="breadcumb">
-						<li class="active"><a href="#">Home</a></li>
+						<li class="active"><a href="{{route('premium.dashboard')}}">Home</a></li>
 						<li> <span class="ion-ios-arrow-right"></span>Profile</li>
 					</ul>
 				</div>
@@ -190,14 +190,14 @@
 			<div class="col-md-3 col-sm-12 col-xs-12">
 				<div class="user-information">
 					<div class="user-img">
-						<a href="#"><img src="{{asset('pro_images/' . $user->pro_pic)}}" alt=""><br></a>
+						<a href="#"><img src="{{asset('pro_images/' . $user->pro_pic)}}" width=150 height=100 alt=""><br></a>
 						
 					</div>
 					<div class="user-fav">
 						<p>Account Details</p>
 						<ul>
 							<li  class="active"><a href="userprofile.html">Profile</a></li>
-							<li><a href="userfavoritelist.html">My List</a></li>
+							<li><a href="{{route('premium.mylist')}}">My List</a></li>
 							<li><a href="userrate.html">Delete Profile</a></li>
 						</ul>
 					</div>

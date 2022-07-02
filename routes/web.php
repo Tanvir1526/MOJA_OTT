@@ -6,6 +6,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PremiumController;
 use App\Http\Controllers\VerifyEmailController;
 use App\Http\Controllers\ProductionController;
+use App\Http\Controllers\SslCommerzPaymentController;
 use Illuminate\Http\Request;
 /*
 |--------------------------------------------------------------------------
@@ -60,8 +61,13 @@ Route::get('/Premium', [PremiumController::class, 'dashboard'])->name('premium.d
 Route::get('/Premium/Profile', [PremiumController::class, 'profile'])->name('premium.profile')->middleware('logged.user');
 Route::post('/Premium.ProfileUpdate', [PremiumController::class, 'updateSubmit'])->name('users.update.submit')->middleware('logged.user');
 Route::post('/Premium.ProfileUpdatePassword', [PremiumController::class, 'updatePasswordSubmit'])->name('users.update.password')->middleware('logged.user');
-
-
+Route::get('/Premium/Inside/{id}', [PremiumController::class, 'inside'])->name('premium.inside')->middleware('logged.user');
+Route::post('/Premium/RatingSubmit', [PremiumController::class, 'ratingSubmit'])->name('premium.rating.submit')->middleware('logged.user');
+Route::post('/Premium/ReportSubmit', [PremiumController::class, 'reportSubmit'])->name('premium.report.submit')->middleware('logged.user');
+Route::post('/Premium/MyListSubmit', [PremiumController::class, 'mylistSubmit'])->name('premium.mylist.submit')->middleware('logged.user');
+Route::get('/Premium/MyList', [PremiumController::class, 'mylist'])->name('premium.mylist')->middleware('logged.user');
+Route::post('/Premium/SearchSubmit',[PremiumController::class, 'searchSubmit'])->name('premium.search.submit')->middleware('logged.user');
+Route::get('/Premium/Payment', [PremiumController::class, 'payment'])->name('premium.payment')->middleware('logged.user');
 
 //_____________Production routes_____________
 Route::get('/Production', [ProductionController::class, 'dashboard'])->name('production.dashboard')->middleware('logged.user');
@@ -74,3 +80,19 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+// SSLCOMMERZ Start
+Route::get('/example1', [SslCommerzPaymentController::class, 'exampleEasyCheckout'])->middleware('logged.user');
+Route::post('/paymentsubmit', [SslCommerzPaymentController::class, 'payViaAjax'])->name('paymentsubmit');
+Route::get('/example2', [SslCommerzPaymentController::class, 'exampleHostedCheckout']);
+
+Route::post('/pay', [SslCommerzPaymentController::class, 'index']);
+Route::post('/pay-via-ajax', [SslCommerzPaymentController::class, 'payViaAjax']);
+
+Route::post('/success', [SslCommerzPaymentController::class, 'success']);
+Route::post('/fail', [SslCommerzPaymentController::class, 'fail']);
+Route::post('/cancel', [SslCommerzPaymentController::class, 'cancel']);
+
+Route::post('/ipn', [SslCommerzPaymentController::class, 'ipn']);
+//SSLCOMMERZ END
