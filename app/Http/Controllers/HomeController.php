@@ -7,6 +7,15 @@ use App\Models\User;
 use App\Models\OrderModel;
 class HomeController extends Controller
 {
+    protected function redirectTo()
+{
+  if (Auth::user()->type == 'admin')
+  {
+    return redirect()->route('admin.dashboard');  // admin dashboard path
+  } else {
+    return back(); // member dashboard path
+  }
+}
     function login()
     {
         return view('common.login');
@@ -45,6 +54,8 @@ class HomeController extends Controller
             else if($user->type=='admin')
             {
                 session()->put('logged', $user->email);
+                session()->put('type', $user->type);
+
                 return redirect()->route('admin.dashboard');
             }
             else if($user->type=='production')

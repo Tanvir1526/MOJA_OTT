@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class AdminController extends Controller
 {
@@ -14,16 +15,25 @@ class AdminController extends Controller
 
     function viewAllUsers()
     {
-        return view('admin.viewAllUsers');
+        $users = User::all();
+        return view('admin.users.allUser', ['users' => $users]);
+        
     }
 
     function viewAllPremiumUsers()
     {
-        return view('admin.viewAllPremiumUsers');
+        $users=User::where('type', 'premium')->get();
+        return view('admin.users.PremiumUser', ['users' => $users]);
     }
     function viewAllProductionHouse()
     {
-        return view('admin.viewAllProductionHouse');
+        $users=User::where('type', 'production')->get();
+        return view('admin.users.PremiumUser', ['users' => $users]);
+    }
+    function viewAlladmin()
+    {
+        $users=User::where('type', 'admin')->get();
+        return view('admin.users.PremiumUser', ['users' => $users]);
     }
     function viewAllMovies()
     {
@@ -33,6 +43,15 @@ class AdminController extends Controller
     {
         return view('admin.viewAllGenres');
     }
+    //__________Details__________
+    function viewUserDetails(Request $id)
+    {
+        $user = User::where('user_id', $id)->with('name','email','type')->first();
+        return view('admin.users.Details', ['user' => $user]);
+    }
+
+
+
     //_____________edit______________
     function editUser()
     {
