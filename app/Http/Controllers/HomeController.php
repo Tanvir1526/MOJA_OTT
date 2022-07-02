@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\OrderModel;
 class HomeController extends Controller
 {
     function login()
@@ -24,13 +25,22 @@ class HomeController extends Controller
         $user = User::where('email', $req->email)->where('password',$req->password)
                          ->first();
         //$password = $req->input('password');
+        $order = OrderModel::where('user_id',$user->user_id)->first();
 
         if($user)
         {
             if($user->type=='premium')
             {
                 session()->put('logged', $user->email);
-                return redirect()->route('premium.dashboard');
+                if($order->status=='Processing')
+                {
+                    return redirect()->route('premium.dashboard');
+                }
+                else
+                {
+                    return view('exampleEasycheckout')->with('user',$user);
+                }
+                //return redirect()->route('premium.dashboard');
             }
             else if($user->type=='admin')
             {

@@ -1,4 +1,3 @@
-<h5>{{Session::get('msg')}}</h5>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,9 +19,10 @@
 	<link rel="stylesheet" href="../../css/photoswipe.css">
 	<link rel="stylesheet" href="../../css/default-skin.css">
 	<link rel="stylesheet" href="../../css/main.css">
+	
 
 	<!-- Favicons -->
-	<link rel="icon" type="../../image/png" href="../../icon/favicon-32x32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="../../icon/favicon-32x32.png" sizes="32x32">
 	<link rel="apple-touch-icon" href="../../icon/favicon-32x32.png">
 	<link rel="apple-touch-icon" sizes="72x72" href="../../icon/apple-touch-icon-72x72.png">
 	<link rel="apple-touch-icon" sizes="114x114" href="../../icon/apple-touch-icon-114x114.png">
@@ -31,43 +31,70 @@
 	<meta name="description" content="">
 	<meta name="keywords" content="">
 	<meta name="author" content="Dmitry Volkov">
-	<title>MOJA – Online Movies, TV Shows & Cinema</title>
+	<title>Moja – Online Movies, TV Shows & Cinema HTML Template</title>
 
 </head>
 <body class="body">
 
-	<div class="sign section--bg" data-bg="../../img/section/section.jpg">
+	<div class="sign section--bg" data-bg="img/section/section.jpg">
 		<div class="container">
 			<div class="row">
 				<div class="col-12">
 					<div class="sign__content">
-						<!-- authorization form -->
-						<form action="{{route('users.login.submit')}}" method="post" class="sign__form">
-						{{@csrf_field()}}
+						<!-- registration form -->
+						<form action="{{route('users.reg.submit')}}" method="post" class="sign__form">
+							<!--<a href="#" class="sign__logo">
+								<img src="../../img/logo.svg" alt="">
+							</a>-->
+							{{@csrf_field()}}
 
 							<div class="sign__group">
-							<input type="text" class="sign__input" value="{{old('email')}}" name="email" placeholder="Email"><br>
-								@error('email')
-        						<span class="text-danger" >{{$message}}</span><br>
+								<input type="text" class="sign__input" value="{{old('name')}}" name="name" placeholder="Name"><br>
+								@error('name')
+        						<span class="text-danger">{{$message}}</span><br>
 								@enderror
 							</div>
 
 							<div class="sign__group">
-							<input type="password" class="sign__input"  name="password" placeholder="Password"><br>
+								<input type="text" class="sign__input" value="{{old('email')}}" name="email" placeholder="Email"><br>
+								@error('email')
+        						<span class="text-danger">{{$message}}</span><br>
+								@enderror
+							</div>
+
+							<div class="sign__group">
+								<input type="password" class="sign__input"  name="password" placeholder="Password"><br>
 								@error('password')
 								<span class="text-danger">{{$message}}</span><br>
 								@enderror
 							</div>
 
+							<div class="sign__group">
+								<input type="password" class="sign__input"  name="conf_password" placeholder="Confirm Password"><br>
+								@error('conf_password')
+								<span class="text-danger">{{$message}}</span><br>
+								@enderror
+							</div>
+							<div class="sign__group">
+							<label for="Type"class="sign__text" >Type :</label>
+							 <select name="type" id="type">
+							 	<option value="">Select Type</option>
+								 <option value="premium">Premium Subscriber</option>
+								<option value="free">Free Subscriber</option>
+								<option value="admin">Admin</option>
+								<option value="production">Production House</option>
+								
+							</select>
+							@error('type')
+        					<span class="text-danger">{{$message}}</span><br>
+							@enderror
+							</div>
+							<input type="submit" class="sign__btn" value="Sign Up">							
 							
-							
-							<input type="submit" class="sign__btn" value="Sign in">	
 
-							<span class="sign__text">Don't have an account? <a href="{{Route('register')}}">Sign up!</a></span>
-
-							<!--<span class="sign__text"><a href="#">Forgot password?</a></span>-->
+							<span class="sign__text">Already have an account? <a href="{{Route('login')}}">Sign in!</a></span>
 						</form>
-						<!-- end authorization form -->
+						<!-- registration form -->
 					</div>
 				</div>
 			</div>
@@ -87,17 +114,6 @@
 	<script src="../../js/photoswipe.min.js"></script>
 	<script src="../../js/photoswipe-ui-default.min.js"></script>
 	<script src="../../js/main.js"></script>
-	<script>
-		(function (window, document) {
-			var loader = function () {
-				var script = document.createElement("script"), tag = document.getElementsByTagName("script")[0];
-				script.src = "https://sandbox.sslcommerz.com/embed.min.js?" + Math.random().toString(36).substring(7);
-				tag.parentNode.insertBefore(script, tag);
-			};
-	
-			window.addEventListener ? window.addEventListener("load", loader, false) : window.attachEvent("onload", loader);
-		})(window, document);
-	</script>
 </body>
 
 </html>

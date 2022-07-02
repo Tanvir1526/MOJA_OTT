@@ -182,4 +182,9 @@ class PremiumController extends Controller
         $content = ContentModel::where('title','like','%'.$search.'%')->get();
         return view('premium.searchResult')->with('content',$content)->with('user',$user);
     }
+    function payment()
+    {
+        $user = User::where('email',session()->get('logged'))->first();
+        return view('premium.payment')->with('user',$user);
+    }
 }

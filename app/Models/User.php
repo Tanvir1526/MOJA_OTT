@@ -11,6 +11,7 @@ use App\Models\ContentModel;
 use App\Models\RatingModel;
 use App\Models\ReportModel;
 use App\Models\MyListModel;
+use App\Models\OrderModel;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -75,5 +76,9 @@ class User extends Authenticatable implements MustVerifyEmail
     function mylist()
     {
         return $this->hasMany(MyListModel::class, 'user_id', 'user_id');
+    }
+    function order()
+    {
+        return $this->hasMany(OrderModel::class, 'user_id', 'id');
     }
 }
