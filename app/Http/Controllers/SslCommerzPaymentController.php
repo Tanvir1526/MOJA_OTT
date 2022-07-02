@@ -168,7 +168,7 @@ class SslCommerzPaymentController extends Controller
 
     public function success(Request $request)
     {
-        echo "Transaction is Successful";
+        
 
         $tran_id = $request->input('tran_id');
         $amount = $request->input('amount');
@@ -194,7 +194,9 @@ class SslCommerzPaymentController extends Controller
                     ->where('transaction_id', $tran_id)
                     ->update(['status' => 'Processing']);
 
-                echo "<br >Transaction is successfully Completed";
+                /* echo "<br >Transaction is successfully Completed"; */
+                $message = "Transaction is successfully Completed";
+                return view('common.login')->with('jsAlert', $message);
             } else {
                 /*
                 That means IPN did not work or IPN URL was not set in your merchant panel and Transation validation failed.

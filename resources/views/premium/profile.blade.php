@@ -151,14 +151,16 @@
 		</div>
 
 		<!-- header search -->
-		<form action="#" class="header__search">
+		<form action="{{route('premium.search.submit')}}" method="post" class="header__search">
+			{{@csrf_field()}}
 			<div class="container">
 				<div class="row">
 					<div class="col-12">
 						<div class="header__search-content">
-							<input type="text" placeholder="Search for a movie, TV Series that you are looking for">
+							<input type="text" name ="search" id="search" placeholder="Search for a movie, TV Series that you are looking for">
 
-							<button type="button">search</button>
+							{{-- <input type="button" value="Search"> --}}
+							<input type="submit" class="sign__btn" width="10" height="5" value="Search">
 						</div>
 					</div>
 				</div>
@@ -196,15 +198,16 @@
 					<div class="user-fav">
 						<p>Account Details</p>
 						<ul>
-							<li  class="active"><a href="userprofile.html">Profile</a></li>
+							<li  class="active"><a href="">Profile</a></li>
 							<li><a href="{{route('premium.mylist')}}">My List</a></li>
-							<li><a href="userrate.html">Delete Profile</a></li>
+							<li><a href="{{route('premium.payment')}}">Payment History</a></li>
+							
 						</ul>
 					</div>
 					<div class="user-fav">
 						<p>Others</p>
 						<ul>
-							<li><a href="#">Change password</a></li>
+							
 							<li><a href="#">Log out</a></li>
 						</ul>
 					</div>
@@ -218,7 +221,7 @@
 						<div class="row">
 							<div class="col-md-6 form-it">
 								<label>Name</label>
-								<input type="text" value="{{old('name')}}" name="name" placeholder="{{$user->name}}">
+								<input type="text" value="{{old('name')}}" name="name" value="{{$user->name}}">
                                 @error('name')
         						<span class="text-danger" >{{$message}}</span><br>
 								@enderror
@@ -227,7 +230,7 @@
                             <div class="row">
 							<div class="col-md-6 form-it">
 								<label>Email Address</label>
-								<input type="text" value="{{old('email')}}" name="email" placeholder="{{$user->email}}">
+								<input type="text" value="{{old('email')}}" name="email" value="{{$user->email}}">
                                 @error('email')
         						<span class="text-danger" >{{$message}}</span><br>
 								@enderror
@@ -359,6 +362,18 @@
 <script src="../../js/plugins.js"></script>
 <script src="../../js/plugins2.js"></script>
 <script src="../../js/custom.js"></script>
+<script src="../../js/jquery-3.3.1.min.js"></script>
+	<script src="../../js/bootstrap.bundle.min.js"></script>
+	<script src="../../js/owl.carousel.min.js"></script>
+	<script src="../../js/jquery.mousewheel.min.js"></script>
+	<script src="../../js/jquery.mCustomScrollbar.min.js"></script>
+	<script src="../../js/wNumb.js"></script>
+	<script src="../../js/nouislider.min.js"></script>
+	<script src="../../js/plyr.min.js"></script>
+	<script src="../../js/jquery.morelines.min.js"></script>
+	<script src="../../js/photoswipe.min.js"></script>
+	<script src="../../js/photoswipe-ui-default.min.js"></script>
+	<script src="../../js/main.js"></script>
 </body>
 
 <!-- userprofile14:04-->

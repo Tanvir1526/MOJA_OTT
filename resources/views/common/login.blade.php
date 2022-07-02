@@ -1,4 +1,9 @@
 <h5>{{Session::get('msg')}}</h5>
+@if(session()->has('jsAlert'))
+    <script>
+        alert({{ session()->get('jsAlert') }});
+    </script>
+@endif 
 <!DOCTYPE html>
 <html lang="en">
 

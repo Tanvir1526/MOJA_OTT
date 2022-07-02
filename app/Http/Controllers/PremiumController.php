@@ -9,6 +9,7 @@ use App\Models\ContentModel;
 use App\Models\RatingModel;
 use App\Models\ReportModel;
 use App\Models\MyListModel;
+use App\Models\OrderModel;
 
 
 class PremiumController extends Controller
@@ -185,6 +186,7 @@ class PremiumController extends Controller
     function payment()
     {
         $user = User::where('email',session()->get('logged'))->first();
-        return view('premium.payment')->with('user',$user);
+        $order=OrderModel::where('user_id',$user->user_id)->first();
+        return view('premium.paymentHistory')->with('order',$order);
     }
 }
