@@ -59,6 +59,7 @@ Route::post('/Premium/RatingSubmit', [PremiumController::class, 'ratingSubmit'])
 Route::post('/Premium/ReportSubmit', [PremiumController::class, 'reportSubmit'])->name('premium.report.submit')->middleware('logged.user');
 Route::post('/Premium/MyListSubmit', [PremiumController::class, 'mylistSubmit'])->name('premium.mylist.submit')->middleware('logged.user');
 Route::get('/Premium/MyList', [PremiumController::class, 'mylist'])->name('premium.mylist')->middleware('logged.user');
+Route::post('/Premium/SearchSubmit',[PremiumController::class, 'searchSubmit'])->name('premium.search.submit')->middleware('logged.user');
 
 //_____________Production routes_____________
 Route::get('/Production', [ProductionController::class, 'dashboard'])->name('production.dashboard')->middleware('logged.user');

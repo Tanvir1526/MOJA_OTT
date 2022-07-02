@@ -7,7 +7,7 @@
 
 						<div class="item">
 							<!-- card -->
-							@foreach($movielist as $row)
+							@foreach($content as $row)
 							<div class="card card--big">
 								<div class="card__cover">
 								<img src="{{asset('posters/' . $row->image)}}"width="10" height="700" alt="">

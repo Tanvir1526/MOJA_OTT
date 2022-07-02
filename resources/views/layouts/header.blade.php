@@ -120,14 +120,16 @@
 		</div>
 
 		<!-- header search -->
-		<form action="#" class="header__search">
+		<form action="{{route('premium.search.submit')}}" method="post" class="header__search">
+			{{@csrf_field()}}
 			<div class="container">
 				<div class="row">
 					<div class="col-12">
 						<div class="header__search-content">
-							<input type="text" placeholder="Search for a movie, TV Series that you are looking for">
+							<input type="text" name ="search" id="search" placeholder="Search for a movie, TV Series that you are looking for">
 
-							<button type="button">search</button>
+							{{-- <input type="button" value="Search"> --}}
+							<input type="submit" class="sign__btn" width="10" height="5" value="Search">
 						</div>
 					</div>
 				</div>

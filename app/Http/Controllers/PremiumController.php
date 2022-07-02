@@ -175,4 +175,11 @@ class PremiumController extends Controller
         }
         return redirect()->route('premium.inside',['id'=>$content_id]);
     }
+    function searchSubmit(Request $req)
+    {
+        $user = User::where('email',session()->get('logged'))->first();
+        $search = $req->input('search');
+        $content = ContentModel::where('title','like','%'.$search.'%')->get();
+        return view('premium.searchResult')->with('content',$content)->with('user',$user);
+    }
 }
