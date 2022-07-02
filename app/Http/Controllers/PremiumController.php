@@ -32,7 +32,7 @@ class PremiumController extends Controller
         @$this->validate($req,
                         [
                             "name"=>"max:20|regex:/^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/",
-                            "email"=>"regex:/^([1-9]{2}-[0-9]{5}-[1-3]{1})\@student\.aiub\.edu+$/",
+                            "email"=>"email",
                             
                             
                 
@@ -42,7 +42,7 @@ class PremiumController extends Controller
                             "name.max"=> "Maximum 20 Characters",
                             "name.regex"=>"Please Enter A Valid Name",
                             
-                            "email.regex"=>"Please Enter A Valid Email Address",
+                            "email.email"=>"Please Enter A Valid Email Address",
                             
                             
                         ]
@@ -150,7 +150,8 @@ class PremiumController extends Controller
     function mylist()
     {
         $user = User::where('email',session()->get('logged'))->first();
-        $mylist = MyListModel::where('user_id',$user->user_id)->first();
+        $mylist = MyListModel::where('user_id',$user->user_id)->get();
+        //return $mylist;
         
         return view('premium.mylist')->with('mylist',$mylist);
     }
