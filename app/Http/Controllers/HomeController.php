@@ -32,7 +32,7 @@ class HomeController extends Controller
             if($user->type=='premium')
             {
                 session()->put('logged', $user->email);
-                if($order->status=='Processing')
+                if($order)
                 {
                     return redirect()->route('premium.dashboard');
                 }
