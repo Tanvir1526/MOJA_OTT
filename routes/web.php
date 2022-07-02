@@ -26,11 +26,17 @@ Route::post('/users.reg',[HomeController::class, 'regSubmit'])->name('users.reg.
 Route::get('/logout',[HomeController::class, 'logout'])->name('logout');
 
 //_____________Admin routes_____________
+
 Route::group(['middleware' => ['admin_panel']],function(){
     Route::get('/Admin', [AdminController::class, 'dashboard'])->name('admin.dashboard');
-    
+    Route::get('/Admin/AllUsers', [AdminController::class, 'viewAllUsers'])->name('admin.users.all');
+    Route::get('Admin/AllPremiumUsers', [AdminController::class, 'viewAllPremiumUsers'])->name('admin.users.premium');
+    Route::get('Admin/AllProductionHouse', [AdminController::class, 'viewAllProductionHouse'])->name('admin.users.production');
+    Route::get('Admin/Alladmin', [AdminController::class, 'viewAlladmin'])->name('admin.users.admin');
+    Route::get('Admin/Details/{id}', [AdminController::class, 'viewUserDetails'])->name('admin.users.details');
 
 });
+
 
 
 //_____________Email Verification_____________
@@ -61,3 +67,10 @@ Route::post('/Premium.ProfileUpdatePassword', [PremiumController::class, 'update
 Route::get('/Production', [ProductionController::class, 'dashboard'])->name('production.dashboard')->middleware('logged.user');
 Route::get('/Production/Upload', [ProductionController::class, 'upload'])->name('production.upload')->middleware('logged.user');
 Route::post('/Production/Upload/Submit', [ProductionController::class, 'uploadSubmit'])->name('production.upload.submit')->middleware('logged.user');
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
