@@ -82,4 +82,32 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->hasMany(OrderModel::class, 'user_id', 'id');
     }
+    public function isAdmin()
+{
+    if($this->type === 'admin')
+    {
+        return true;
+    }
+     
+    else 
+    { 
+        return false; 
+    }
+}
+public function isPremium()
+{
+    if($this->type === 'premium')
+    {
+        return true;
+    }
+     
+    else 
+    { 
+        return false; 
+    }
+}
+public function hasRole($type)
+{
+    return User::where('type', $type)->get();
+}
 }
