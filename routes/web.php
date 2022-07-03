@@ -28,7 +28,7 @@ Route::get('/logout',[HomeController::class, 'logout'])->name('logout');
 
 //_____________Admin routes_____________
 
-Route::group(['middleware' => ['admin_panel']],function(){
+Route::group(['middleware' => ['admin_panel','type']],function(){
     Route::get('/Admin', [AdminController::class, 'dashboard'])->name('admin.dashboard');
     Route::get('/Admin/AllUsers', [AdminController::class, 'viewAllUsers'])->name('admin.users.all');
     Route::get('Admin/AllPremiumUsers', [AdminController::class, 'viewAllPremiumUsers'])->name('admin.users.premium');
@@ -57,7 +57,7 @@ Route::post('/email/verification-notification', function (Request $request) {
 })->middleware(['auth', 'throttle:6,1'])->name('verification.send');
 
 //_____________Premium Subscriber routes_____________
-Route::get('/Premium', [PremiumController::class, 'dashboard'])->name('premium.dashboard')->middleware('logged.user');
+Route::get('/Premium', [PremiumController::class, 'dashboard'])->name('premium.dashboard')->middleware('logged.user')->middleware('type');
 Route::get('/Premium/Profile', [PremiumController::class, 'profile'])->name('premium.profile')->middleware('logged.user');
 Route::post('/Premium.ProfileUpdate', [PremiumController::class, 'updateSubmit'])->name('users.update.submit')->middleware('logged.user');
 Route::post('/Premium.ProfileUpdatePassword', [PremiumController::class, 'updatePasswordSubmit'])->name('users.update.password')->middleware('logged.user');

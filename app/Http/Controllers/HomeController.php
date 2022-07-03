@@ -34,13 +34,14 @@ class HomeController extends Controller
         $user = User::where('email', $req->email)->where('password',$req->password)
                          ->first();
         //$password = $req->input('password');
-        $order = OrderModel::where('user_id',$user->user_id)->first();
+        
 
         if($user)
         {
             if($user->type=='premium')
             {
                 session()->put('logged', $user->email);
+                $order = OrderModel::where('user_id',$user->user_id)->first();
                 if($order)
                 {
                     return redirect()->route('premium.dashboard');
