@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class admin extends Model
 {
     use HasFactory;
+    protected $table = 'admins';
+    protected $primaryKey = 'admin_id';
+    function user()
+    {
+        return $this->belongsTo(User::class, 'user_id', 'user_id');
+    }
 }
