@@ -44,10 +44,18 @@ class AdminController extends Controller
         return view('admin.viewAllGenres');
     }
     //__________Details__________
-    function viewUserDetails(Request $id)
+    function viewUserDetails($id)
     {
-        $user = User::where('user_id', $id)->with('name','email','type')->first();
+        $user = User::where('user_id', $id)->with('name','email','type')->get();
         return view('admin.users.Details', ['user' => $user]);
+        // $name="Student $id";
+        // $email ="astro.tanvir@gmail.com";
+        // $type ="admin";
+        // return view('admin.users.Details')
+        // ->with('n',$name)
+        // ->with('email',$email)
+        // ->with('type',$type);
+
     }
 
 
