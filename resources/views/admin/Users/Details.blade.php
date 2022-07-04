@@ -6,7 +6,7 @@
 
 <head>
     <!-- Basic need -->
-    <title>Moja – Online Movies, TV Shows & Cinema HTML Template</title>
+    <title></title>
     <meta charset="UTF-8">
     <meta name="description" content="">
     <meta name="keywords" content="">
@@ -84,13 +84,7 @@
 
                                 </ul>
                             </div>
-                            <div class="user-fav">
-                                <p>Others</p>
-                                <ul>
-
-                                    <li><a href="#">Log out</a></li>
-                                </ul>
-                            </div>
+                      
                         </div>
                     </div>
                     <div class="col-md-9 col-sm-12 col-xs-12">

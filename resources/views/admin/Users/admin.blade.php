@@ -1,9 +1,7 @@
 @extends('admin.layouts.main')
 
 @section('content')
-<button type="button" class="btn btn-primary btn-icon-text btn-rounded">
-    <i class="ti-plus btn-icon-prepend"></i>ADD NEW
-</button>
+<a href="#" class="btn btn-secondary">ADD New</a>
 <div class="row">
     <table class="table table-striped" id="table1">
         <thead>
@@ -32,7 +30,6 @@
                     <a href="#" class="btn btn-secondary">Edit</a>
                     <a href="#" class="btn btn-danger">Delete</a>
                 </td>
-        
             </tr>
             @endforeach
         </tbody>

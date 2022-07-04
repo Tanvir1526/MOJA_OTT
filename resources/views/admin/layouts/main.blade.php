@@ -62,8 +62,14 @@
             <ul class="nav">
                 <li class="nav-item">
                     <a class="nav-link" href="{{route('admin.dashboard')}}">
-                        <i class="ti-shield menu-icon"></i>
+                        <i class=" ti-home menu-icon"></i>
                         <span class="menu-title">Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{route('admin.profile')}}">
+                        <i class="ti-shield menu-icon"></i>
+                        <span class="menu-title">Admin Profile </span>
                     </a>
                 </li>
                 <li class="nav-item">

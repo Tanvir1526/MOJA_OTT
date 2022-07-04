@@ -1,10 +1,10 @@
 @extends('admin.layouts.main')
 
 @section('content')
-<button type="button" class="btn btn-primary btn-icon-text btn-rounded">
-    <i class="ti-plus btn-icon-prepend"></i>ADD NEW
-</button>
+
 <div class="row">
+<a href="{{route('admin.user.create')}}"class="btn btn-secondary">add</a>
+
     <table class="table table-striped" id="table1">
         <thead>
             <tr>

@@ -1,5 +1,4 @@
 @extends('admin.layouts.main')
-
 @section('content')
 <div class="row">
     <table class="table table-striped" id="table1">

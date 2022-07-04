@@ -37,9 +37,10 @@ Route::group(['middleware' => ['admin_panel','type']],function(){
     Route::get('Admin/Alladmin', [AdminController::class, 'viewAlladmin'])->name('admin.users.admin');
     Route::get('Admin/Details/{id}', [AdminController::class, 'viewUserDetails'])->name('admin.users.details');
     Route::get('/Admin/Payment', [AdminController::class, 'payment'])->name('admin.payment');
-    Route::post('Admin/Premium/create', [PremiumController::class, 'Precreate'])->name('admin.premium.create');
-
+    Route::get('Admin/create', [AdminController::class, 'createUser'])->name('admin.user.create');
+    Route::get('Admin/Profile', [AdminController::class, 'profile'])->name('admin.profile');
 });
+route::post('Admin/create', [AdminController::class, 'createUserSubmit'])->name('admin.user.create.submit');
 
 
 
