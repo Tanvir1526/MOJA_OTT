@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\OrderModel;
 
 class AdminController extends Controller
 {
@@ -44,10 +45,16 @@ class AdminController extends Controller
         return view('admin.viewAllGenres');
     }
     //__________Details__________
-    function viewUserDetails(Request $id)
+    function viewUserDetails($id)
     {
-        $user = User::where('user_id', $id)->with('name','email','type')->first();
-        return view('admin.users.Details', ['user' => $user]);
+        $users = User::where('user_id', $id)->first();
+        return view('admin.users.Details', ['users' => $users]);
+    }
+    function payment()
+    {
+        $user = User::where('user_id')->first();
+        $order=OrderModel::where('user_id')->first();
+        return view('admin.Users.paymentHistory')->with('user',$user);
     }
 
 
@@ -118,11 +125,11 @@ class AdminController extends Controller
     //_____________create______________
     function createAdmin()
     {
-        return view('admin.createAdmin');
+        return view('admin.createUser');
     }
     function createProductionHouse()
     {
-        return view('admin.createProductionHouse');
+        return view('admin.createUser');
     }
     function createGenre()
     {

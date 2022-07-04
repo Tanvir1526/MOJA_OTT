@@ -28,11 +28,11 @@
                 @else
                 <td><a href="#" class="btn btn-success">Unban</a></td>
                 @endif
-                <td><a href="#" class="btn btn-primary">View</a>
+                <td><a href="{{route('admin.users.details',['id'=>$user->user_id])}}" class="btn btn-primary">View</a>
                     <a href="#" class="btn btn-secondary">Edit</a>
                     <a href="#" class="btn btn-danger">Delete</a>
                 </td>
-
+        
             </tr>
             @endforeach
         </tbody>
