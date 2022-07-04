@@ -19,6 +19,7 @@ use Illuminate\Http\Request;
 |
 */
 
+
 //_____________Common routes_____________
 Route::get('/', [HomeController::class, 'login'])->name('login');
 Route::post('/users.login', [HomeController::class, 'loginSubmit'])->name('users.login.submit');
@@ -64,13 +65,22 @@ Route::post('/Premium/SearchSubmit',[PremiumController::class, 'searchSubmit'])-
 Route::get('/Premium/Payment', [PremiumController::class, 'payment'])->name('premium.payment')->middleware('logged.user');
 
 //_____________Production routes_____________
+
 Route::get('/Production', [ProductionController::class, 'dashboard'])->name('production.dashboard')->middleware('logged.user');
 Route::get('/Production/Upload', [ProductionController::class, 'upload'])->name('production.upload')->middleware('logged.user');
 Route::post('/Production/Upload/Submit', [ProductionController::class, 'uploadSubmit'])->name('production.upload.submit')->middleware('logged.user');
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
+// Auth::routes();
+Route::get('/content/list',[ProductionController::class,'contentlist'])->name('contentlist')->middleware('logged.user');
+Route::get('/details',[ProductionController::class,'contentdetails'])->name('details')->middleware('logged.user');
+//Route::get('/content/edit/{user_id}/{title}',[ProductionController::class,'contentEdit'])->name('edit');
+//Route::post('/content/edit',[ProductionController::class,'editSubmit'])->name('SubmitEdit');
+Route::get('/content/edit/{content_id}',[ProductionController::class, 'Edit'])->name('content.edit');
+Route::post('/content/contentUpdate', [ProductionController::class, 'updateSubmit'])->name('content.update.submit')->middleware('logged.user');
+Route::get('/production/Profile', [ProductionController::class, 'profile'])->name('production.profile')->middleware('logged.user');
+Route::post('/production.ProfileUpdate', [ProductionController::class, 'updateSubmit'])->name('users.update.submit')->middleware('logged.user');
+Route::post('/production.ProfileUpdatePassword', [ProductionController::class, 'updatePasswordSubmit'])->name('users.update.password')->middleware('logged.user');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/ViewReport',[ProductionController::class, 'viewReport'])->name('production.viewreport')->middleware('logged.user');
 //Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

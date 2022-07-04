@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  
+  <title>Bootstrap Example</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -13,7 +13,6 @@
       margin-bottom: 0;
       border-radius: 0;
     }
-    {{@csrf_field()}}
     
     /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
     .row.content {height: 450px}
@@ -60,38 +59,24 @@
         <li><a href="#">About</a></li>
         <li><a href="#">Projects</a></li>
         <li><a href="#">Contact</a></li>
-        <li><a href="{{route('production.profile')}}">Profile</a></li>
-        <li><a href="{{route('production.viewreport')}}">View Report</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="{{route('logout')}}"><span class="glyphicon glyphicon-log-out"></span> Login Out</a></li>
-     </ul>
-      <ul class="nav navbar-nav navbar-right">
-      <nav class="navbar navbar-light bg-light">
-         <form class="form-inline">
-           <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
-      
-      
+        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
       </ul>
-      
     </div>
   </div>
 </nav>
-
-
   
 <div class="container-fluid text-center">    
   <div class="row content">
     <div class="col-sm-2 sidenav">
-      <p><a href="{{route('production.upload')}}">Upload Content</a></p>
-      <p><a href="{{route('contentlist')}}">Content List</a></p>
+      <p><a href="#">Link</a></p>
+      <p><a href="#">Link</a></p>
       <p><a href="#">Link</a></p>
     </div>
     <div class="col-sm-8 text-left"> 
-      <h1>Production House Dashboard</h1>
-      
+      <h1>Welcome</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
       <hr>
       <h3>Test</h3>
       <p>Lorem ipsum...</p>
@@ -106,18 +91,8 @@
     </div>
   </div>
 </div>
-<br>
-<br><br><br>
-<br><br><br>
-<br><br><br>
-<br><br>
-<br><br><br>
-<br><br><br>
-<br><br>
-<br><br><br>
-<br>
-<footer class="container-fluid text-center">
 
+<footer class="container-fluid text-center">
   <p>Footer Text</p>
 </footer>
 
