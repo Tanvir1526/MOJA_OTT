@@ -64,6 +64,11 @@ class HomeController extends Controller
                 session()->put('logged', $user->email);
                 return redirect()->route('production.dashboard');
             }
+            else if($user->type=='free')
+            {
+                session()->put('logged', $user->email);
+                return redirect()->route('free.dashboard');
+            }
             
         }
         else

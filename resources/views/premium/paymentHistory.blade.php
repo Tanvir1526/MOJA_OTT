@@ -12,9 +12,9 @@
 						
 						<div class="form__slider">
 							
-							<input type = "hidden" name = "name" disabled  value = "{{$order->name}}" />
-							<input type = "hidden" name = "amount" disabled  value = "{{$order->amount}}" />
-							<input type = "hidden" name = "transaction_id" disabled  value = "{{$order->transaction_id}}" />
+							<input type = "Text" name = "name"   value = "{{$order->name}}" placeholder="{{$order->name}}" />
+							<input type = "Text" name = "amount"   value = "{{$order->amount}}"  placeholder="{{$order->amount}}"/>
+							<input type = "Text" name = "transaction_id"   value = "{{$order->transaction_id}}"placeholder="{{$order->transaction_id}}" />
 						</div>
 						
 					</form>

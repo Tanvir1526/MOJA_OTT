@@ -6,6 +6,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PremiumController;
 use App\Http\Controllers\VerifyEmailController;
 use App\Http\Controllers\ProductionController;
+use App\Http\Controllers\FreeController;
 use App\Http\Controllers\SslCommerzPaymentController;
 use Illuminate\Http\Request;
 /*
@@ -36,8 +37,11 @@ Route::group(['middleware' => ['admin_panel','type']],function(){
     Route::get('Admin/AllProductionHouse', [AdminController::class, 'viewAllProductionHouse'])->name('admin.users.production');
     Route::get('Admin/Alladmin', [AdminController::class, 'viewAlladmin'])->name('admin.users.admin');
     Route::get('Admin/Details/{id}', [AdminController::class, 'viewUserDetails'])->name('admin.users.details');
-
+    Route::get('/Admin/Payment', [AdminController::class, 'payment'])->name('admin.payment');
+    Route::get('Admin/create', [AdminController::class, 'createUser'])->name('admin.user.create');
+    Route::get('Admin/Profile', [AdminController::class, 'profile'])->name('admin.profile');
 });
+route::post('Admin/create', [AdminController::class, 'createUserSubmit'])->name('admin.user.create.submit');
 
 
 
@@ -81,6 +85,16 @@ Route::post('/production.ProfileUpdate', [ProductionController::class, 'updateSu
 Route::post('/production.ProfileUpdatePassword', [ProductionController::class, 'updatePasswordSubmit'])->name('users.update.password')->middleware('logged.user');
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/ViewReport',[ProductionController::class, 'viewReport'])->name('production.viewreport')->middleware('logged.user');
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+
+//_____________Free Subscriber Routes_____________
+Route::get('/Free', [FreeController::class, 'dashboard'])->name('free.dashboard')->middleware('logged.user');
+
+
 //Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
