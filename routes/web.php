@@ -6,6 +6,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PremiumController;
 use App\Http\Controllers\VerifyEmailController;
 use App\Http\Controllers\ProductionController;
+use App\Http\Controllers\FreeController;
 use App\Http\Controllers\SslCommerzPaymentController;
 use Illuminate\Http\Request;
 /*
@@ -72,6 +73,12 @@ Route::post('/Production/Upload/Submit', [ProductionController::class, 'uploadSu
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+
+//_____________Free Subscriber Routes_____________
+Route::get('/Free', [FreeController::class, 'dashboard'])->name('free.dahsboard')->middleware('logged.user');
+
 
 //Auth::routes();
 
