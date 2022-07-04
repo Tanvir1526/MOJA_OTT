@@ -10,6 +10,6 @@ class FreeController extends Controller
     {
         $user = User::where('email',session()->get('logged'))->first();
         
-        return view('premium.dashboard');
+        return view('free.dashboard');
     }
 }
