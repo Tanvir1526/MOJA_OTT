@@ -38,8 +38,8 @@ class ProductionController extends Controller
               
                 'title'=>'required',
                 'description'=>'required',
-                'image'=>'required|mimes:php,pdf,docx,xlsx,xlx,jpg',
-                'video'=>'required|mimes:mp4',
+                'image'=>'required|mimes:php,pdf,docx,xlsx,xlx,jpg,JPG',
+                'video'=>'required|mimes:mp4,MP4',
                 'genre'=>'required',
                 'language'=>'required',
                 'country'=>'required',

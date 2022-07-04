@@ -61,61 +61,45 @@ class AdminController extends Controller
 
 
     //_____________edit______________
-    function editUser()
-    {
-        return view('admin.editUser');
+    function editUser($id)
+    { $user = User::where('user_id',$id)->first();
+        return view('admin.Users.editUser')->with('user',$user);
     }
-    function editPremiumUser()
-    {
-        return view('admin.editPremiumUser');
-    }
-    function editProductionHouse()
-    {
-        return view('admin.editProductionHouse');
-    }
-    function editMovie()
-    {
-        return view('admin.editMovie');
-    }
-    function editGenre()
-    {
-        return view('admin.editGenre');
-    }
+   
     //_____________update______________
-    function   editUserSubmit()
+    function   editUserSubmit(request $request)
     {
-        return view('admin.editUserSubmit');
+        $user = User::where('user_id',$request->user_id)->first();
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = $request->password;
+        $user->save();
+        return redirect()->route('admin.users.all');
     }
-    function editPremiumUserSubmit()
-    {
-        return view('admin.editPremiumUserSubmit');
-    }
-    function editProductionHouseSubmit()
-    {
-        return view('admin.editProductionHouseSubmit');
-    }
-    function editMovieSubmit()
-    {
-        return view('admin.editMovieSubmit');
-    }
-    function editGenreSubmit()
-    {
-        return view('admin.editGenreSubmit');
-    }
+    
+   
     //_____________delete______________
-    function deleteUser()
+    function deleteUser($id)
     {
-        return view('admin.deleteUser');
-    }
-    function deletePremiumUser()
-    {
-        return view('admin.deletePremiumUser');
-    }
-    function deleteProductionHouse()
-    {
-        return view('admin.deleteProductionHouse');
-    }
+        $users = User::where('user_id', $id)->first();
+        // $users = User::where('email',session()->get('logged'))->first();
+        // return view('admin.users.allUser')->with('users',$users);
+        // $user = User::find($id);
+        if($users->email == session()->has('logged'))
+        {
+            session()->flash('msg','User is logged in'); 
+        }
+        else
+        {
+            $users->delete();
+            session()->flash('msg1','User Deleted'); 
+        }
+        $users->delete();
 
+        return redirect()->back();
+       
+    }
+ 
     //_____________create______________
     function createUser()
     {
