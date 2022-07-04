@@ -77,7 +77,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 
 //_____________Free Subscriber Routes_____________
-Route::get('/Free', [FreeController::class, 'dashboard'])->name('free.dashsboard')->middleware('logged.user');
+Route::get('/Free', [FreeController::class, 'dashboard'])->name('free.dashboard')->middleware('logged.user');
 
 
 //Auth::routes();
