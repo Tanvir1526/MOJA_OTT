@@ -41,10 +41,9 @@ Route::group(['middleware' => ['admin_panel','type']],function(){
     Route::get('Admin/create', [AdminController::class, 'createUser'])->name('admin.user.create');
     Route::get('Admin/Profile', [AdminController::class, 'profile'])->name('admin.profile');
     Route::get('Admin/user/Delete/{id}', [AdminController::class, 'deleteUser'])->name('admin.user.delete')->middleware('logged.user');
-    route::get('Admin/user/Edit/{id}', [AdminController::class, 'editUser'])->name('admin.user.edit');
-    route::post('Admin/user/Edit', [AdminController::class, 'editUserSubmit'])->name('admin.user.edit.submit');
-});
-route::post('Admin/create', [AdminController::class, 'createUserSubmit'])->name('admin.user.create.submit');
+    Route::get('Admin/user/Edit/{id}', [AdminController::class, 'editUser'])->name('admin.user.edit');});
+    Route::post('Admin/user/Edit', [AdminController::class, 'editUserSubmit'])->name('admin.user.edit.submit');
+    Route::post('Admin/create', [AdminController::class, 'createUserSubmit'])->name('admin.user.create.submit');
 
 
 

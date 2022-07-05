@@ -67,12 +67,29 @@ class AdminController extends Controller
     }
    
     //_____________update______________
-    function   editUserSubmit(request $request)
+    function   editUserSubmit(Request $request)
     {
+        $this->validate($request,
+        [
+            "name"=>"max:20|regex:/^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/",
+            "email"=>"email",
+            "type"=>"required",
+            "status"=>"required",
+        ],
+        [
+            
+            "name.max"=> "Maximum 20 Characters",
+            "name.regex"=>"Please Enter A Valid Name",
+            "email.email"=>"Please Enter A Valid Email Address",
+            "type.required"=>"Please Select A Type",
+            "status.required"=>"Please Select A Status"    
+        ]
+        );
         $user = User::where('user_id',$request->user_id)->first();
         $user->name = $request->name;
         $user->email = $request->email;
-        $user->password = $request->password;
+        $user->type = $request->type;
+        $user->status = $request->status;
         $user->save();
         return redirect()->route('admin.users.all');
     }
