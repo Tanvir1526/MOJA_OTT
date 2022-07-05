@@ -79,12 +79,19 @@ Route::get('/details',[ProductionController::class,'contentdetails'])->name('det
 //Route::get('/content/edit/{user_id}/{title}',[ProductionController::class,'contentEdit'])->name('edit');
 //Route::post('/content/edit',[ProductionController::class,'editSubmit'])->name('SubmitEdit');
 Route::get('/content/edit/{content_id}',[ProductionController::class, 'Edit'])->name('content.edit');
-Route::post('/content/contentUpdate', [ProductionController::class, 'updateSubmit'])->name('content.update.submit')->middleware('logged.user');
+Route::post('/content/contentUpdate', [ProductionController::class, 'contentupdateSubmit'])->name('content.update.submit')->middleware('logged.user');
 Route::get('/production/Profile', [ProductionController::class, 'profile'])->name('production.profile')->middleware('logged.user');
-Route::post('/production.ProfileUpdate', [ProductionController::class, 'updateSubmit'])->name('users.update.submit')->middleware('logged.user');
+Route::post('/production.ProfileUpdate', [ProductionController::class, 'profileupdateSubmit'])->name('users.update.submit')->middleware('logged.user');
 Route::post('/production.ProfileUpdatePassword', [ProductionController::class, 'updatePasswordSubmit'])->name('users.update.password')->middleware('logged.user');
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/ViewReport',[ProductionController::class, 'viewReport'])->name('production.viewreport')->middleware('logged.user');
+Route::get('/content/delete/{content_id}',[ProductionController::class, 'contentdelete'])->name('content.contentdelete');
+Route::post('/content/contentsearch',[ProductionController::class,'contentsearch'])->name('contentsearch')->middleware('logged.user');
+Route::get('/content/contentreport',[ProductionController::class,'contentreport'])->name('contentreport')->middleware('logged.user');
+Route::get('/content/contentrating',[ProductionController::class,'contentrating'])->name('contentrating')->middleware('logged.user');
+Route::get('/content/contentpaymenthistory',[ProductionController::class,'contentpaymenthistory'])->name('contentpaymenthistory')->middleware('logged.user');
+Route::get('/content/contentabout', [ProductionController::class, 'contentabout'])->name('content.about')->middleware('logged.user');
+Route::get('/content/productioncontact', [ProductionController::class, 'productioncontact'])->name('content.productioncontact')->middleware('logged.user');
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

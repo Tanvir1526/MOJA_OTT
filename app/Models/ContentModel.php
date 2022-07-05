@@ -13,7 +13,7 @@ class ContentModel extends Model
 {
     use HasFactory;
     protected $table = 'contents';
-    protected $primarykey = 'content_id';
+    protected $primaryKey = 'content_id';
     function user()
     {
         return $this->belongsTo(User::class,'user_id','user_id');

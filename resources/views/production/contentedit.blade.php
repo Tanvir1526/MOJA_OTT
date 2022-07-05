@@ -2,7 +2,7 @@
     <form enctype="multipart/form-data" method="post" action="{{ route('content.update.submit') }}">
     {{@csrf_field()}}
 
-    Content Id: <input type="text" value="{{$ContentModel->content_id}}" name="content_id"> </br>
+    Content Id: <input type="hidden" value="{{$ContentModel->content_id}}" name="content_id"> </br>
     @error('content_id')
         <span class="text-danger">{{$message}}</span><br>
     @enderror
