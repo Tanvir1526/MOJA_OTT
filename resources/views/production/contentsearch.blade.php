@@ -31,9 +31,9 @@
                 <td>{{$c->runtime}}</td>
                 <td>{{$c->director}}</td>
                 <td>{{$c->cast}}</td>
-                <td><a class="btn btn-primary" href="{{route('content.edit',[$c->content_id])}}">Edit</a></td>
-                <td><a class="btn btn-primary" href="{{route('content.contentdelete',['content_id'=>$c->content_id])}}">Delete</a></td>
-                
+              
             </tr>
         @endforeach
+        <a href="{{route('production.dashboard')}}"><h2>Back</h2></a>
     </table>
+    

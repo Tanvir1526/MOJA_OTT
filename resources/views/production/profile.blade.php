@@ -76,4 +76,5 @@
 								<input type="submit" class="submit"  value="Change">
 							</div>
 						</div>	
+						<a href="{{route('production.dashboard')}}"><b>Back</b></a>
 					</form>

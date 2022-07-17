@@ -18,4 +18,5 @@ Cast: {{$ContentModel->cast}}</br>
 
 </tr>
 
-<table>
+</table>
+<a href="{{route('contentlist')}}"><h2>Back</h2></a>

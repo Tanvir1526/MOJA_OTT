@@ -72,5 +72,6 @@
 
 
         <input type="submit" value="upload">
+        <a href="{{route('contentlist')}}"><b>Back</b></a>
 
 </form>

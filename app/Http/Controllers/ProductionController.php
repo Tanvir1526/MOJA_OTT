@@ -70,7 +70,7 @@ class ProductionController extends Controller
             "director.required"=> "Please provide the director name",
             "director.max"=> "Director should not exceed 50 characters",
             "cast.required"=> "Please enter the cast name",
-            "cast.max"=> "cast should not exceed 1000 characters",
+            "cast.max"=> "cast should not exceed 1000 characters"
         ]
         );
         

@@ -94,4 +94,5 @@
     </div>
 
 </section>
+<a href="{{route('production.dashboard')}}"><b>Back</b></a>
 <!--Section: Contact v.2-->

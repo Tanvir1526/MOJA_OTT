@@ -67,5 +67,6 @@
 
 
         <input type="submit" value="upload">
+        <a href="{{route('production.dashboard')}}"><b>Back</b></a>
 
 </form>

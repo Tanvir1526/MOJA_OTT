@@ -30,3 +30,4 @@
             </tr>
         @endforeach
     </table>
+    <a href="{{route('production.dashboard')}}"><b>Back</b></a>
