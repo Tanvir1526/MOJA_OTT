@@ -38,12 +38,12 @@
 
                 <li class="nav-item nav-profile dropdown">
                     <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" id="profileDropdown">
-                        <img src="../../images/faces/face28.jpg" alt="profile" />
+                        <img src="../../images/faces/propic.jpg" alt="profile" />
                     </a>
                     <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
                         <a href="{{Route('logout')}}" class="dropdown-item">
                             <i class="ti-power-off text-primary"></i>
-                            
+
                             Logout
                         </a>
                     </div>
@@ -112,28 +112,8 @@
                     </a>
                 </li>
 
-               
-                <li class="nav-item">
-                    <a class="nav-link" data-bs-toggle="collapse" href="#auth" aria-expanded="false"
-                        aria-controls="auth">
-                        <i class="ti-user menu-icon"></i>
-                        <span class="menu-title">User Pages</span>
-                        <i class="menu-arrow"></i>
-                    </a>
-                    <div class="collapse" id="auth">
-                        <ul class="nav flex-column sub-menu">
-                            <li class="nav-item"> <a class="nav-link" href="pages/samples/login.html"> Login </a></li>
-                            <li class="nav-item"> <a class="nav-link" href="pages/samples/login-2.html"> Login 2 </a>
-                            </li>
-                            <li class="nav-item"> <a class="nav-link" href="pages/samples/register.html"> Register </a>
-                            </li>
-                            <li class="nav-item"> <a class="nav-link" href="pages/samples/register-2.html"> Register 2
-                                </a></li>
-                            <li class="nav-item"> <a class="nav-link" href="pages/samples/lock-screen.html"> Lockscreen
-                                </a></li>
-                        </ul>
-                    </div>
-                </li>
+
+                
                 </li>
             </ul>
         </nav>
@@ -146,7 +126,7 @@
                             <div>
                                 <h4 class="font-weight-bold mb-0">Moja Admin Dashboard</h4>
                             </div>
-                           
+
                         </div>
                     </div>
                 </div>
@@ -160,7 +140,7 @@
                                     <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">404</h3>
                                     <i class="ti-user icon-md text-muted mb-0 mb-md-3 mb-xl-0"></i>
                                 </div>
-                               
+
                             </div>
                         </div>
                     </div>
@@ -173,7 +153,7 @@
                                     <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">70</h3>
                                     <i class=" ti-crown icon-md text-muted mb-0 mb-md-3 mb-xl-0"></i>
                                 </div>
-                                
+
                             </div>
                         </div>
                     </div>
@@ -186,7 +166,7 @@
                                     <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">40</h3>
                                     <i class="ti-agenda icon-md text-muted mb-0 mb-md-3 mb-xl-0"></i>
                                 </div>
-                               
+
                             </div>
                         </div>
                     </div>
@@ -199,7 +179,7 @@
                                     <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">613</h3>
                                     <i class="ti-layers-alt icon-md text-muted mb-0 mb-md-3 mb-xl-0"></i>
                                 </div>
-                               
+
                             </div>
                         </div>
                     </div>
