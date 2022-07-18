@@ -44,6 +44,9 @@ Route::group(['middleware' => ['admin_panel','type']],function(){
     Route::get('Admin/user/Edit/{id}', [AdminController::class, 'editUser'])->name('admin.user.edit');});
     Route::post('Admin/user/Edit', [AdminController::class, 'editUserSubmit'])->name('admin.user.edit.submit');
     Route::post('Admin/create', [AdminController::class, 'createUserSubmit'])->name('admin.user.create.submit');
+    Route::get('Admin/content/',[AdminController::class,'viewAllMovies'])->name('MovieList');
+    Route::get('Admin/report',[AdminController::class,'viewReport'])->name('report');
+    Route::get('Admin/Statistics',[AdminController::class,'Statistics'])->name('Statistics');
 
 
 

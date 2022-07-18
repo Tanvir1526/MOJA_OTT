@@ -5,13 +5,32 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\OrderModel;
+use App\Models\RatingModel;
+use App\Models\ReportModel;
+use App\Models\ContentModel;
+use App\Models\ProductionModel;
+
+
+
+
 
 class AdminController extends Controller
 {
     //__________view__________
     function dashboard()
     {
-        return view('admin.dashboard');
+        $userCount = User::count();
+        $premiumUserCount = User::where('type', 'premium')->count();
+        $productionUserCount = User::where('type', 'production')->count();
+        $adminUserCount = User::where('type', 'admin')->count();
+        $contentCount = ContentModel::count();
+       
+        return view('admin.dashboard', compact('userCount', 'premiumUserCount', 'productionUserCount', 'adminUserCount', 'contentCount'));
+        // return view('admin.dashboard', compact('userCount'));
+
+        // $users = User::All()->count();
+        // return view('admin.dashboard')->with('users', $users);
+       
     }
 
     function viewAllUsers()
@@ -38,8 +57,29 @@ class AdminController extends Controller
     }
     function viewAllMovies()
     {
-        return view('admin.viewAllMovies');
+        $ContentModels = ContentModel::all();
+        return view('admin.content')->with('ContentModel',$ContentModels);
     }
+    function viewReport()
+    {
+        $ReportModel = ReportModel::all();
+        return view('admin.report', ['ReportModel' => $ReportModel]);
+    }
+    function Statistics()
+    {
+        $userCount = User::count();
+        $premiumUserCount = User::where('type', 'premium')->count();
+        $productionUserCount = User::where('type', 'production')->count();
+        $adminUserCount = User::where('type', 'admin')->count();
+        $contentCount = ContentModel::count();
+        $orderCount = OrderModel::count();
+        $ratingCount = RatingModel::count();
+        $reportCount = ReportModel::count();
+        
+        return view('admin.statistics', compact('userCount', 'premiumUserCount', 'productionUserCount', 'adminUserCount', 'contentCount', 'orderCount', 'ratingCount', 'reportCount'));
+    }
+
+
     //__________Details__________
     function viewUserDetails($id)
     {
@@ -53,9 +93,8 @@ class AdminController extends Controller
     }
     function payment()
     {
-        $user = User::where('user_id')->first();
-        $order=OrderModel::where('user_id')->first();
-        return view('admin.Users.paymentHistory')->with('user',$user);
+        $OrderModels = OrderModel::all();
+        return view('admin.Users.paymentHistory')->with('OrderModel',$OrderModels);
     }
 
 

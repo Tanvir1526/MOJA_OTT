@@ -1,7 +1,6 @@
 @extends('admin.layouts.main')
 @section('content')
 
-@endsection
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -57,3 +56,6 @@
 </form>
 </body>
 </html>
+
+@endsection
+

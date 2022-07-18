@@ -13,6 +13,8 @@ use App\Models\RatingModel;
 use App\Models\ReportModel;
 use App\Models\MyListModel;
 use App\Models\OrderModel;
+use App\Models\ProductionHouseModel;
+use App\Models\User;    
 
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -53,7 +55,7 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-     
+    
     function admin()
     {
         return $this->hasOne(admin::class, 'user_id', 'user_id');
