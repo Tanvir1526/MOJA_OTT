@@ -47,6 +47,7 @@ Route::group(['middleware' => ['admin_panel','type']],function(){
     Route::get('Admin/content/',[AdminController::class,'viewAllMovies'])->name('MovieList');
     Route::get('Admin/report',[AdminController::class,'viewReport'])->name('report');
     Route::get('Admin/Statistics',[AdminController::class,'Statistics'])->name('Statistics');
+    Route::get('Admin/coontent/Delete/{id}',[AdminController::class,'deleteContent'])->name('admin.content.delete');
 
 
 

@@ -125,6 +125,7 @@ class AdminController extends Controller
         ]
         );
         $user = User::where('user_id',$request->user_id)->first();
+        $user = new User();
         $user->name = $request->name;
         $user->email = $request->email;
         $user->type = $request->type;
@@ -155,6 +156,15 @@ class AdminController extends Controller
         return redirect()->back();
        
     }
+
+    function deleteContent($id)
+    {
+        $ContentModel = ContentModel::where('content_id', $id)->first();
+        $ContentModel->delete();
+        return redirect()->back();
+    }
+
+
  
     //_____________create______________
     function createUser()

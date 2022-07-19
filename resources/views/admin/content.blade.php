@@ -16,6 +16,7 @@
         <th>Runtime</th>
         <th>Director</th>
         <th>Cast</th>
+        <th>Action</th>
         </tr>
     </thead>
     <tbody>
@@ -33,6 +34,9 @@
         <td>{{$c->runtime}}</td>
         <td>{{$c->director}}</td>
         <td>{{$c->cast}}</td>
+        <td>
+            <a href="{{route('admin.content.delete',$c->content_id)}}" class="btn btn-danger">Delete</a>
+        </td>
         </tr>
         @endforeach
     </tbody>
