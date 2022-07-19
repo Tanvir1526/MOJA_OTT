@@ -204,33 +204,6 @@ class AdminController extends Controller
             $user->save();
             return redirect()->route('admin.users.all');
     }
-    //_____________Ban______________
-    function banUser()
-    {
-        return view('admin.banUser');
-    }
-    function banProductionHouse()
-    {
-        return view('admin.banProductionHouse');
-    }
-    function banMovie()
-    {
-        return view('admin.banMovie');
-    }
-    //_____________Unban______________
-    function unbanUser()
-    {
-        return view('admin.unbanUser');
-    }
-    function unbanProductionHouse()
-    {
-        return view('admin.unbanProductionHouse');
-    }
-    function unbanMovie()
-    {
-        return view('admin.unbanMovie');
-    }
-    
     
 
 
