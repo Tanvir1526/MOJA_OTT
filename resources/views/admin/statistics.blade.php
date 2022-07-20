@@ -8,7 +8,7 @@
             <div class="col-lg-10 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">Bar chart</h4>
+                        <h4 class="card-title">Content Bar Chart</h4>
                         <canvas id="barChart"></canvas>
                     </div>
                 </div>
@@ -19,7 +19,7 @@
             <div class="col-lg-10 grid-margin grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">Pie chart</h4>
+                        <h4 class="card-title">User Pie chart</h4>
                         <canvas id="pieChart"></canvas>
                     </div>
                 </div>
