@@ -1,7 +1,7 @@
 @extends('admin.layouts.main')
 @section('content')
 {{@csrf_field()}}
-<table class="table table-striped" >
+<table class="table table-striped"style="width:100%" cellspacing="0" cellpading="0">
     <thead>
         <tr>
         <th>Content Id</th>
