@@ -14,7 +14,8 @@ use App\Models\ReportModel;
 use App\Models\MyListModel;
 use App\Models\OrderModel;
 use App\Models\ProductionHouseModel;
-use App\Models\User;    
+use App\Models\User;   
+use App\Models\TokenModel; 
 
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -83,6 +84,10 @@ class User extends Authenticatable implements MustVerifyEmail
     function order()
     {
         return $this->hasMany(OrderModel::class, 'user_id', 'id');
+    }
+    function token()
+    {
+        return $this->hasMany(TokenModel::class, 'user_id', 'user_id');
     }
     public function isAdmin()
 {

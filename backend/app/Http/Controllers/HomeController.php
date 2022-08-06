@@ -5,6 +5,11 @@ use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\OrderModel;
+use App\Models\TokenModel;
+use Datetime;
+use Illuminate\Support\Facades\Validator;
+use File;
+use Illuminate\Support\Str;
 class HomeController extends Controller
 {
     protected function redirectTo()
@@ -30,6 +35,8 @@ class HomeController extends Controller
         'email.required' => 'Email is required',
         'password.required' => 'Password is required',
         ]);
+
+        
 
         $user = User::where('email', $req->email)->where('password',$req->password)
                          ->first();
@@ -79,6 +86,42 @@ class HomeController extends Controller
         }
        
         
+    }
+
+    function loginAPI(Request $req)
+    {
+        $validator = Validator::make($req->all(), [
+            'email' => 'required',
+            'password' => 'required',
+        ],
+        [
+            'email.required' => 'Email is required',
+            'password.required' => 'Password is required',
+        ]);
+        if ($validator->fails()) {
+            return response()->json(['error'=>$validator->errors()], 422);
+        }
+
+        $user = User::where('email', $req->email)->where('password',$req->password)
+                         ->first();
+        
+        if($user)
+        {
+            if($user->type=='premium')
+            {
+                $token_key = Str::random(64);
+                $token = new TokenModel;
+                $token->user_id = $user->user_id;
+                $token->token_key = $token_key;
+                $token->created_at = new Datetime;
+                $token->save();
+                return response()->json(['success'=>'Login Successful','token_key'=>$token_key], 200);
+
+            }
+        }
+        return response()->json(['error'=>'User not valid'], 422);
+
+
     }
     
         

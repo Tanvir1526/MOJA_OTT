@@ -67,5 +67,6 @@ class Kernel extends HttpKernel
         'logged.user'=>\App\Http\Middleware\AuthUser::class,
         'admin_panel'=>\App\Http\Middleware\admin_panel::class,
         'type' => \App\Http\Middleware\Type::class,
+        'APIAuth' => \App\Http\Middleware\APIAuth::class,
     ];
 }
