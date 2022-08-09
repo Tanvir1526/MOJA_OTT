@@ -175,4 +175,14 @@ class HomeController extends Controller
         return redirect()->route('login');
     }
 
+    function logoutAPI(Request $req)
+    {
+        $key = $req->token_key;
+        if($key){
+            $tk = Token::where("token_key",$key)->first();
+            $tk->expired_at = new Datetime();
+            $tk->save();
+        }
+    }
+
 }

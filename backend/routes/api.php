@@ -31,4 +31,4 @@ Route::get('/', [HomeController::class, 'login'])->name('login');
 Route::post('/login', [HomeController::class, 'loginAPI']);
 Route::get('/Register', [HomeController::class, 'register'])->name('register');
 Route::post('/users.reg',[HomeController::class, 'regSubmit'])->name('users.reg.submit');
-Route::get('/logout',[HomeController::class, 'logout'])->name('logout');
+Route::any('/logout',[HomeController::class, 'logoutAPI']);
