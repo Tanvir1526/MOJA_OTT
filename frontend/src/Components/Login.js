@@ -1,6 +1,5 @@
 import { useState } from "react";
 import axiosConfig from './axiosConfig';
-import PremDash from './Components/Premium/PremDash';
 const Login =()=>{
     const[email,setName]=useState("");
     const[password,setPass]=useState("");
