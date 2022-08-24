@@ -21,6 +21,7 @@ function App() {
             <Route path="/reg" element={<Registration/>}></Route>
             <Route path="/premium" element={<PremiumDash/>}></Route>
             <Route path="/profile" element={<Profile/>}></Route>
+            <Route path="/admin" element={<Dashboard/>}></Route>
             <Route path="/logout" element={<Logout/>}></Route>
             </Routes>
             
