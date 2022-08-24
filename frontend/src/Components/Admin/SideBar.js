@@ -1,10 +1,11 @@
+import { Link } from "react-router-dom";
 const SideBar = () => {
   return (
   <div>
   <nav className="sidebar sidebar-offcanvas" id="sidebar">
   <ul className="nav">
     <li className="nav-item">
-      <a className="nav-link" href="{{route('admin.dashboard')}}">
+      <a className="nav-link" href="<Link to={`/admin`}></Link>">
         <i className=" ti-home menu-icon" />
         <span className="menu-title">Dashboard</span>
       </a>
