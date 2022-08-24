@@ -13,6 +13,17 @@
   }
 }
 
+.navbar_wrapper a{
+  padding-left: 30px;
+  color: #61dafb;
+}
+.me-auto{
+  
+  
+  
+}
+
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;

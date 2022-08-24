@@ -1,6 +1,9 @@
 import { useState } from "react";
 import axiosConfig from './axiosConfig';
+import { Navigate, useNavigate } from "react-router-dom";
+import TopMenu from "./TopMenu";
 const Login =()=>{
+    const[token_key,setTokenKey]=useState('');
     const[email,setName]=useState("");
     const[password,setPass]=useState("");
 
@@ -11,6 +14,7 @@ const Login =()=>{
         .then((rsp)=>{
             console.log(rsp.data);
             localStorage.setItem('_authToken',rsp.data.token_key);
+            
         },(err)=>{
             
         });
@@ -19,12 +23,17 @@ const Login =()=>{
     }
     
     return(
+        <div>
+            
         <form onSubmit={Submit}>
             Email : <input type="text" onChange={(e)=>setName(e.target.value)} value={email}/><br/>
             Password:  <input type="password" onChange={(e)=>setPass(e.target.value)} value={password} ></input><br/>
             <input type="submit" value="login"/>
         </form>
+        </div>
     )
 }
 
 export default Login;
+
+

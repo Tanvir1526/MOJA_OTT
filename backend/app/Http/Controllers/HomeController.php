@@ -169,6 +169,43 @@ class HomeController extends Controller
                         event(new Registered($user));
                         return view('auth.verify-email');
     }
+
+    function registerAPI(Request $req)
+    {
+        $validator = Validator::make($req->all(), [
+                            "name"=>"required|max:20|regex:/^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/",
+                            "email"=>"required|email",
+                            "password"=>"required|min:8|regex:/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/",
+                            "conf_password"=>"required|same:password",
+                            "type"=>"required"
+        ],
+        [
+            'name.required' => 'Please Enter Your Name',
+            'name.max' => 'Maximum 20 Characters',
+            'name.email' => 'Please Enter A Valid Name',
+            'email.required' => 'Please Enter Your Email Address',
+            'email.regex' => 'Please Enter A Valid Email Address',
+            'password.required' => 'Please Enter A Password',
+            'password.min' => 'Minimum 8 Characters',
+            'password.regex' => 'password must contain a special character, a number and an uppercase letter',
+            'conf_password.required' => 'Please Confirm Your Password',
+            'conf_password.same' => 'Passwords do not match',
+            'type.required' => 'Please Enter User Type'
+        ]);
+        if ($validator->fails()) {
+            return response()->json(['error'=>$validator->errors()], 422);
+        }
+        $user = new \App\Models\User;
+        $user->name = $req->name;
+        $user->email = $req->email;
+        $user->password = $req->password;
+        $user->type = $req->type;
+        $user->save();
+        event(new Registered($user));
+        return response()->json(['success'=>'Registration Successful'], 200);
+    }
+
+
     function logout(){
         session()->forget('logged');
         session()->flash('msg','Sucessfully Logged out');

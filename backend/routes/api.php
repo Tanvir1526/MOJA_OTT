@@ -29,8 +29,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get('/', [HomeController::class, 'login'])->name('login');
 Route::post('/login', [HomeController::class, 'loginAPI']);
-Route::get('/Register', [HomeController::class, 'register'])->name('register');
-Route::post('/users.reg',[HomeController::class, 'regSubmit'])->name('users.reg.submit');
+Route::post('/register', [HomeController::class, 'registerAPI']);
+
 Route::any('/logout',[HomeController::class, 'logoutAPI']);
 
 //_____________Admin routes_____________
