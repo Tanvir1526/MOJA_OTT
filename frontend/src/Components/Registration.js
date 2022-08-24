@@ -1,6 +1,7 @@
 import TopMenu from "./TopMenu";
 import axiosConfig from "./axiosConfig";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Registration = () => {
 
@@ -10,6 +11,7 @@ const Registration = () => {
     const[password,setPass]=useState("");
     const[conf_password,setConfirmPass]=useState("");
     const[type,setType]=useState("");
+    const navigate=useNavigate();
 
     const Submit=(event)=>{
         event.preventDefault();
@@ -17,7 +19,7 @@ const Registration = () => {
         axiosConfig.post("/register",data)
         .then((rsp)=>{
             console.log(rsp.data);
-            
+            navigate("/");
             
         },(err)=>{
             

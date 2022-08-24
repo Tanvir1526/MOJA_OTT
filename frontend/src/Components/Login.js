@@ -1,12 +1,12 @@
 import { useState } from "react";
 import axiosConfig from './axiosConfig';
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import TopMenu from "./TopMenu";
 const Login =()=>{
     const[token_key,setTokenKey]=useState('');
     const[email,setName]=useState("");
     const[password,setPass]=useState("");
-
+    const navigate=useNavigate();
     const Submit=(event)=>{
         event.preventDefault();
         var data={email:email, password:password};
@@ -14,7 +14,7 @@ const Login =()=>{
         .then((rsp)=>{
             console.log(rsp.data);
             localStorage.setItem('_authToken',rsp.data.token_key);
-            
+            navigate("/premium");
         },(err)=>{
             
         });

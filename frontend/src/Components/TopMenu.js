@@ -7,13 +7,24 @@ const TopMenu=()=>{
         <Container>
           <Navbar.Brand href="#home">Moja</Navbar.Brand>
           <Nav className="me-auto navbar_wrapper">
-            <MenuItem url="/home" title="Home"/>
+
+        {
+            localStorage.getItem("_authToken")?
+            <>
+            <MenuItem url="/premium" title="Home"/>
             <MenuItem url="/profile" title="Profile"/>
-            <MenuItem url="/premium" title="Premium"/>
-            <MenuItem url="/post" title="Post"/>
+            
+            
+            
+            <MenuItem url="/logout" title="Logout"/>
+            </>
+            :
+            <>
             <MenuItem url="/login" title="Login"/>
             <MenuItem url="/reg" title="Registration"/>
-            <MenuItem url="/list/student" title="List"/>
+            </>
+        }
+            
           </Nav>
           </Container>
       </Navbar>

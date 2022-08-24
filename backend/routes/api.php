@@ -54,3 +54,12 @@ Route::group(['middleware' => ['admin_panel','type']],function(){
     Route::get('Admin/Statistics',[AdminController::class,'Statistics'])->name('Statistics');
     Route::get('Admin/coontent/Delete/{id}',[AdminController::class,'deleteContent'])->name('admin.content.delete');
 
+
+
+
+//_____________Premium routes_____________
+Route::get('/premiumdash', [PremiumController::class, 'dashboardAPI']);
+Route::get('/Premium/Inside/{id}', [PremiumController::class, 'insideAPI']);
+Route::post('/repot', [PremiumController::class, 'reportAPI']);
+Route::post('/rating', [PremiumController::class, 'ratingAPI']);
+Route::get('/profile', [PremiumController::class, 'profileAPI']);

@@ -10,6 +10,7 @@ use App\Models\RatingModel;
 use App\Models\ReportModel;
 use App\Models\MyListModel;
 use App\Models\OrderModel;
+use App\Models\TokenModel;
 
 
 class PremiumController extends Controller
@@ -20,12 +21,29 @@ class PremiumController extends Controller
         $movielist = ContentModel::all();
         return view('premium.dashboard')->with('movielist',$movielist)->with('user',$user);
     }
+    function dashboardAPI()
+    {
+        
+        $movielist = ContentModel::all();
+        return response()->json(['movielist'=>$movielist]);
+    }
     function profile()
     {
         $user = User::where('email',session()->get('logged'))->first();
         return view('premium.profile')->with('user',$user);
         
         
+    }
+    function profileAPI()
+    {
+        $key = $req->token;
+        if($key){
+            $tk = Token::where("token_key",$key)->first();
+        return response()->json(['user'=>$user]);
+        }
+        else{
+            return response()->json(['error'=>'Token is not valid']);
+        }
     }
     function updateSubmit(Request $req)
     {
@@ -99,6 +117,12 @@ class PremiumController extends Controller
         $rating = RatingModel::where('content_id', $content->content_id)->first();
         return view('premium.inside')->with('content',$content)->with('user',$user)->with('rating',$rating);
     }
+    function insideAPI(Request $req)
+    {
+        $content = ContentModel::where('content_id',$req->id)->first();
+        $rating = RatingModel::where('content_id', $content->content_id)->first();
+        return response()->json(['content'=>$content,'rating'=>$rating]);
+    }
     function ratingSubmit(Request $req)
     {
         
@@ -126,6 +150,33 @@ class PremiumController extends Controller
         
         
     }
+    function ratingAPI(Request $req)
+    {
+        $content_id = $req->input('content_id');
+        $user_id = $req->input('user_id');
+        
+        
+        
+        $rating = RatingModel::where('user_id',$user_id)->where('content_id',$content_id)->first();
+        if($rating == null){
+        $rating = new RatingModel();
+        $rating->user_id = $user->user_id;
+        $rating->content_id = $req->content_id;
+        $rating->rating = $req->rating;
+        $rating->save();
+        }
+        else{
+            
+            return response()->json(['msg'=>'Already rated']);
+        }
+        return response()->json(['rating'=>$rating]);
+        //return view('premium.inside')->with('id',$req->content_id)->with('rating', $rating);
+        //return view('premium.dashboard');
+        
+        
+    }
+
+
     function reportSubmit(Request $req)
     {
         $content_id = $req->input('content_id');
@@ -148,6 +199,32 @@ class PremiumController extends Controller
         return redirect()->route('premium.inside',['id'=>$content_id]);
        
     }
+    function reportAPI(Request $req)
+    {
+        $content_id = $req->input('content_id');
+        $user_id = $req->input('user_id');
+        
+        
+        
+        $report = ReportModel::where('user_id',$user_id)->where('content_id',$content_id)->first();
+        if($report == null){
+        $report = new ReportModel();
+        $report->user_id = $user->user_id;
+        $report->content_id = $req->content_id;
+        $report->message = $req->report;
+        $report->save();
+        }
+        else{
+            
+            return response()->json(['msg'=>'Already reported']);
+        }
+        return response()->json(['report'=>$report]);
+        //return view('premium.inside')->with('id',$req->content_id)->with('rating', $rating);
+        //return view('premium.dashboard');
+        
+        
+    }
+
     function mylist()
     {
         $user = User::where('email',session()->get('logged'))->first();
