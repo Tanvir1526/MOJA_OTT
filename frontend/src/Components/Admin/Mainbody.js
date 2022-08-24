@@ -85,25 +85,17 @@ const Mainbody = () => {
         <div className="col-md-6 grid-margin stretch-card">
           <div className="card">
             <div className="card-body">
-              <p className="card-title">Sales details</p>
-              <p className="text-muted font-weight-light">Received overcame oh sensible so at an. Formed do change merely to county it. Am separate contempt domestic to to oh. On relation my so addition branched.</p>
+              <p className="card-title">User</p>
+              <p className="text-muted font-weight-light"></p>
               <div id="sales-legend" className="chartjs-legend mt-4 mb-2" />
               <canvas id="sales-chart" />
             </div>
             <div className="card border-right-0 border-left-0 border-bottom-0">
               <div className="d-flex justify-content-center justify-content-md-end">
                 <div className="dropdown flex-md-grow-1 flex-xl-grow-0">
-                  <button className="btn btn-lg btn-outline-light dropdown-toggle rounded-0 border-top-0 border-bottom-0" type="button" id="dropdownMenuDate2" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                    Today
-                  </button>
-                  <div className="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuDate2">
-                    <a className="dropdown-item" href="#">January - March</a>
-                    <a className="dropdown-item" href="#">March - June</a>
-                    <a className="dropdown-item" href="#">June - August</a>
-                    <a className="dropdown-item" href="#">August - November</a>
-                  </div>
+                  
+                  
                 </div>
-                <button className="btn btn-lg btn-outline-light text-primary rounded-0 border-0 d-none d-md-block" type="button"> View all </button>
               </div>
             </div>
           </div>
@@ -111,24 +103,23 @@ const Mainbody = () => {
         <div className="col-md-6 grid-margin stretch-card">
           <div className="card border-bottom-0">
             <div className="card-body pb-0">
-              <p className="card-title">Purchases</p>
-              <p className="text-muted font-weight-light">The argument in favor of using filler text goes something like this: If you use real content in the design process, anytime you reach a review</p>
+              <p className="card-title">Content</p>
               <div className="d-flex flex-wrap mb-5">
                 <div className="me-5 mt-3">
-                  <p className="text-muted">Status</p>
-                  <h3>362</h3>
+                  <p className="text-muted">Content</p>
+                  <h3>12</h3>
                 </div>
                 <div className="me-5 mt-3">
-                  <p className="text-muted">New users</p>
-                  <h3>187</h3>
+                  <p className="text-muted">Users</p>
+                  <h3>17</h3>
                 </div>
                 <div className="me-5 mt-3">
-                  <p className="text-muted">Chats</p>
-                  <h3>524</h3>
+                  <p className="text-muted">Rating</p>
+                  <h3>14</h3>
                 </div>
                 <div className="mt-3">
-                  <p className="text-muted">Feedbacks</p>
-                  <h3>509</h3>
+                  <p className="text-muted">Report</p>
+                  <h3>5</h3>
                 </div> 
               </div>
             </div>
@@ -250,92 +241,6 @@ const Mainbody = () => {
               <div className="add-items d-flex mb-0 mt-4">
                 <input type="text" className="form-control todo-list-input me-2" placeholder="Add new task" />
                 <button className="add btn btn-icon text-primary todo-list-add-btn bg-transparent"><i className="ti-location-arrow" /></button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="row">
-        <div className="col-md-12 grid-margin stretch-card">
-          <div className="card position-relative">
-            <div className="card-body">
-              <p className="card-title">Detailed Reports</p>
-              <div className="row">
-                <div className="col-md-12 col-xl-3 d-flex flex-column justify-content-center">
-                  <div className="ml-xl-4">
-                    <h1>33500</h1>
-                    <h3 className="font-weight-light mb-xl-4">Sales</h3>
-                    <p className="text-muted mb-2 mb-xl-0">The total number of sessions within the date range. It is the period time a user is actively engaged with your website, page or app, etc</p>
-                  </div>  
-                </div>
-                <div className="col-md-12 col-xl-9">
-                  <div className="row">
-                    <div className="col-md-6 mt-3 col-xl-5">
-                      <canvas id="north-america-chart" />
-                      <div id="north-america-legend" />
-                    </div>
-                    <div className="col-md-6 col-xl-7">
-                      <div className="table-responsive mb-3 mb-md-0">
-                        <table className="table table-borderless report-table">
-                          <tbody><tr>
-                              <td className="text-muted">Illinois</td>
-                              <td className="w-100 px-0">
-                                <div className="progress progress-md mx-4">
-                                  <div className="progress-bar bg-primary" role="progressbar" style={{width: '70%'}} aria-valuenow={70} aria-valuemin={0} aria-valuemax={100} />
-                                </div>
-                              </td>
-                              <td><h5 className="font-weight-bold mb-0">524</h5></td>
-                            </tr>
-                            <tr>
-                              <td className="text-muted">Washington</td>
-                              <td className="w-100 px-0">
-                                <div className="progress progress-md mx-4">
-                                  <div className="progress-bar bg-primary" role="progressbar" style={{width: '30%'}} aria-valuenow={30} aria-valuemin={0} aria-valuemax={100} />
-                                </div>
-                              </td>
-                              <td><h5 className="font-weight-bold mb-0">722</h5></td>
-                            </tr>
-                            <tr>
-                              <td className="text-muted">Mississippi</td>
-                              <td className="w-100 px-0">
-                                <div className="progress progress-md mx-4">
-                                  <div className="progress-bar bg-primary" role="progressbar" style={{width: '95%'}} aria-valuenow={95} aria-valuemin={0} aria-valuemax={100} />
-                                </div>
-                              </td>
-                              <td><h5 className="font-weight-bold mb-0">173</h5></td>
-                            </tr>
-                            <tr>
-                              <td className="text-muted">California</td>
-                              <td className="w-100 px-0">
-                                <div className="progress progress-md mx-4">
-                                  <div className="progress-bar bg-primary" role="progressbar" style={{width: '60%'}} aria-valuenow={60} aria-valuemin={0} aria-valuemax={100} />
-                                </div>
-                              </td>
-                              <td><h5 className="font-weight-bold mb-0">945</h5></td>
-                            </tr>
-                            <tr>
-                              <td className="text-muted">Maryland</td>
-                              <td className="w-100 px-0">
-                                <div className="progress progress-md mx-4">
-                                  <div className="progress-bar bg-primary" role="progressbar" style={{width: '40%'}} aria-valuenow={40} aria-valuemin={0} aria-valuemax={100} />
-                                </div>
-                              </td>
-                              <td><h5 className="font-weight-bold mb-0">553</h5></td>
-                            </tr>
-                            <tr>
-                              <td className="text-muted">Alaska</td>
-                              <td className="w-100 px-0">
-                                <div className="progress progress-md mx-4">
-                                  <div className="progress-bar bg-primary" role="progressbar" style={{width: '75%'}} aria-valuenow={75} aria-valuemin={0} aria-valuemax={100} />
-                                </div>
-                              </td>
-                              <td><h5 className="font-weight-bold mb-0">912</h5></td>
-                            </tr>
-                          </tbody></table>
-                      </div>
-                    </div>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
