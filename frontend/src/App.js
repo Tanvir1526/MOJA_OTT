@@ -8,7 +8,7 @@ import Registration from './Components/Registration';
 import PremiumDash from './Components/PremiumDash';
 import Logout from './Components/Logout';
 import Profile from './Components/Profile';
-
+import CreateUser from './Components/Admin/CreateUser';
 
 function App() {
   return (
@@ -23,6 +23,8 @@ function App() {
             <Route path="/profile" element={<Profile/>}></Route>
             <Route path="/admin" element={<Dashboard/>}></Route>
             <Route path="/logout" element={<Logout/>}></Route>
+            <Route path="/createuser" element={<CreateUser/>}></Route>
+            
             </Routes>
             
       </BrowserRouter>
